@@ -11275,3 +11275,44 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
+/* .hero-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: 10px;
+} */
+
+.publication-title {
+  margin-bottom: 1rem;
+}
+
+.publication-authors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.author-block {
+  display: inline-block;
+  margin: 0.2rem;
+  line-height: 1.0; /* Adjust this value as needed */
+  margin-bottom: 5px; /* Adjust this value as needed */
+  margin-top: 5px; /* Adjust this value as needed */
+}
+
+.eql-cntrb {
+  margin-top: 1rem;
+}
+
+.publication-authors + .publication-authors {
+  margin-top: 10px; /* Adjust this value to increase/decrease the space between the blocks */
+}
+
+.hero {
+  margin-top: 5px; /* Adjust this value to reduce the top margin */
+}
+
