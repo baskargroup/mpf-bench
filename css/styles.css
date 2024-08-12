@@ -11276,43 +11276,39 @@ textarea.form-control-lg {
   }
 }
 
+.table2 {
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 20px; /* Added space between the two parts */
+}
 
-/* .hero-body {
+.table2 td {
+  word-wrap: break-word;
+  text-align: center;
+}
+
+/* Center the second part of the table within the page */
+.centered-wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  margin-top: 10px;
-} */
-
-.publication-title {
-  margin-bottom: 1rem;
+  width: 100%;
 }
 
-.publication-authors {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
+.centered-wrapper .table2 {
+  width: auto; /* Allows the table to size according to its content */
 }
 
-.author-block {
-  display: inline-block;
-  margin: 0.2rem;
-  line-height: 1.0; /* Adjust this value as needed */
-  margin-bottom: 5px; /* Adjust this value as needed */
-  margin-top: 5px; /* Adjust this value as needed */
+/* Add horizontal space between the items in the second part */
+.centered-wrapper .table2 td {
+  padding-left: 20px; /* Adds space to the left */
+  padding-right: 20px; /* Adds space to the right */
+  text-align: center;
+  vertical-align: middle;
 }
 
-.eql-cntrb {
-  margin-top: 1rem;
-}
 
-.publication-authors + .publication-authors {
-  margin-top: 10px; /* Adjust this value to increase/decrease the space between the blocks */
-}
 
-.hero {
-  margin-top: 5px; /* Adjust this value to reduce the top margin */
-}
+
+
+
 
