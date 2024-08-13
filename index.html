@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content="MPF-Bench Dataset"/>
-    <title>EAGLE Dataset</title>
+    <title>MPF-Bench Dataset</title>
     <!-- Favicon-->
     <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/> -->
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -510,7 +510,348 @@
 <br/>
 <br/>
 <hr/>
-<div class="container" style="padding-top:100px; margin-top:-100px;">
+
+
+
+
+
+
+
+<div class="container">
+    <h3 id="models" style="padding-top:100px; margin-top:-100px;text-align: center">Benchmark Models</h3>
+    <div class="text-dark text-justify">
+        In recent years, deep learning has revolutionized the field of scientific computing, particularly in solving complex partial differential 
+        equations (PDEs) and modeling multiphase flows. Several neural network architectures have been proposed, each leveraging different mathematical 
+        and computational principles to approximate solutions to these challenging problems. In this section, we introduce four cutting-edge neural operator 
+        models that have demonstrated significant success in approximating the behavior of complex systems, including those in our droplet and bubble datasets. 
+        These models include DeepONet, Fourier Neural Operator (FNO), Convolutional Neural Operator (CNO), and UNet, each offering unique advantages and requiring 
+        specific considerations for effective application.
+    </div>
+</div>
+<br/>
+
+<div class="container">
+
+    <nav class="nav nav-tabs nav-justified">
+        <a class="nav-item nav-link active" href="#p11" data-toggle="tab">UNet</a>
+        <a class="nav-item nav-link" href="#p12" data-toggle="tab">DeepONet</a>
+        <a class="nav-item nav-link" href="#p13" data-toggle="tab">Fourier Neural Operator</a>
+        <a class="nav-item nav-link" href="#p14" data-toggle="tab">Convolutional Neural Operator</a>
+    </nav>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="p11">
+            <div class="row" style="border:none">
+                <div class="container" style="padding-top: 20px">
+                    <p class="text-justify">
+                        Proposed in 2015 for image segmentation tasks, UNet is designed around the concept of semantic 
+                        segmentation—assigning a class to every pixel in an image. It achieves this through a series of encoders and decoders, 
+                        connected by bridge blocks, arranged in a sequential and symmetrical pattern that resembles the shape of the letter "U," which is 
+                        where the name UNet comes from. One of the key advantages of UNet is its ability to extract the maximum amount of information from each image,
+                         enabling it to perform as well as traditional convolutional neural networks in image classification tasks, but with significantly 
+                         fewer training samples.
+                    </p>
+
+                    <p class="text-justify">
+                        <b>Reference:</b> Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks 
+                        for Biomedical Image Segmentation. In Medical Image Computing and Computer-Assisted Intervention -- 
+                        MICCAI 2015 (pp. 234-241). Springer International Publishing.
+                    </p>
+                    <div class="text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="p12">
+            <div class="row" style="border:none">
+                <div class="container" style="padding-top: 20px">
+
+    
+                    <p class="text-justify">
+                        Proposed in 2019, DeepONets are based on the Universal Approximation Theorem for operators. The core idea is to split the problem into two parts: 
+                        the input function evaluations at specific locations are passed through a fully connected neural network called the branch net, 
+                        while the location coordinates where outputs are desired are passed through another fully connected network called the trunk net. The outputs 
+                        from these two networks are then combined through a dot product, which is compared with the actual outputs during training. 
+                        The entire system is trained using a loss function and backpropagation. One of the appealing aspects of DeepONet is its simplicity; it doesn’t 
+                        require complex hyperparameter tuning, as fairly general fully connected networks with a few hidden layers work effectively for most cases.
+                    </p>
+
+                    <p class="text-justify">
+                        <b>Reference:</b> Lu, L., Jin, P., Pang, G., Zhang, Z., & Karniadakis, G. E. (2021). 
+                        Learning nonlinear operators via DeepONet based on the universal approximation theorem of operators. 
+                        Nature Machine Intelligence, 3, 218–229.
+                    </p>
+                        <div class="text-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="tab-pane fade" id="p13">
+            <div class="row" style="border:none">
+                <div class="container" style="padding-top: 20px">
+                    <p class="text-justify">
+                        Proposed in 2020, the Fourier Neural Operator (FNO) is a neural operator designed to approximate continuous nonlinear operator solutions to 
+                        partial differential equations (PDEs). It achieves this by stacking a sequence of linear integral operators, which are implemented using a 
+                        combination of convolutional kernels and the Fast Fourier Transform (FFT). After applying FFT, high frequencies are truncated to respect the 
+                        Nyquist limit, and then an Inverse Fast Fourier Transform (IFFT) is applied. This process is followed by nonlinear activation functions, creating 
+                        a block that forms the core of the FNO architecture. For practitioners, several hyperparameters are crucial when working with FNOs: the number of 
+                        operator blocks, the number of retained frequencies after FFT, and the number of hidden nodes.
+                    </p>
+
+                    <p class="text-justify">
+                        <b>Reference:</b> Li, Z., Kovachki, N., Azizzadenesheli, K., Liu, B., Bhattacharya, K., Stuart, A., & Anandkumar, A. (2021). 
+                        Fourier Neural Operator for Parametric Partial Differential Equations. arXiv preprint arXiv:2010.08895.
+                    </p>
+                    
+                    
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tab-pane fade" id="p14">
+            <div class="row" style="border:none">
+                <div class="container" style="padding-top: 20px">
+           
+                    <p class="text-justify">
+                        Proposed in 2023, the Convolutional Neural Operator (CNO) is an adaptation of the U-Net architecture specifically 
+                        designed for operator learning. CNOs address a common issue found in Fourier Neural Operators (FNOs), where the application 
+                        of nonlinearity can cause an explosion in the frequency spectrum, leading to violations of the Nyquist barrier. CNOs mitigate 
+                        this problem through a carefully structured series of upsampling, downsampling, and residual blocks, which allow them to maintain 
+                        a structure-preserving operator that satisfies the property of Continuous-Discrete Equivalence. When working with CNOs, the two primary 
+                        hyperparameters to tune are the number of upsampling/downsampling blocks and the learning rate for the optimizer.
+                    </p>
+
+                    <p class="text-justify">
+                        <b>Reference:</b> Raonić, B., Molinaro, R., De Ryck, T., Rohner, T., Bartolucci, F., Alaifari, R., Mishra, S., & de Bézenac, E. (2023). 
+                        Convolutional Neural Operators for robust and accurate learning of PDEs. arXiv preprint arXiv:2302.01178.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<hr/>
+
+
+
+
+
+<div class="container">
+    <h3 id="results" style="padding-top:100px; margin-top:-100px;text-align: center">Results</h3>
+    <div class="text-dark text-justify">
+        In this section, we present the results of applying various neural operator models to four different scenarios within our dataset.
+         These scenarios include sequence-to-field predictions and sequence-to-sequence predictions for both the droplet and bubble datasets. 
+         For each scenario, we evaluate the performance of the models using three key metrics: Mean Squared Error (MSE), \(L_2\) error, and \(L_\infty\) (L infinity) error. 
+         These metrics provide a comprehensive assessment of the models’ accuracy and robustness in capturing the complex dynamics of multiphase flows. 
+         The results highlight the strengths and limitations of each model across different prediction tasks, offering valuable insights into their applicability for 
+         scientific machine learning in multiphase flow simulations.
+    </div>
+</div>
+<br/>
+
+<div class="container">
+
+    <nav class="nav nav-tabs nav-justified">
+        <a class="nav-item nav-link active" href="#p21" data-toggle="tab">Sequence to Field</a>
+        <a class="nav-item nav-link" href="#p22" data-toggle="tab">Sequence to Sequence</a>
+    </nav>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="p21">
+            <div class="row" style="border:none">
+                <div class="container" style="padding-top: 20px">
+                    
+                    <p class="text-justify">
+                        Explanation
+                    </p>
+                    
+                    <table class="table table-bordered table-sm" style="width:68%;margin:auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Dataset</th>
+                                <th scope="col">Model</th>
+                                <th scope="col">MSE</th>
+                                <th scope="col">\(L_2\) error</th>
+                                <th scope="col">\(L_\infty\) error</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4">Droplet</td>
+                                <td>UNet</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>DeepONet</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>FNO</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>CNO</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                    
+                            <tr>
+                                <td rowspan="4">Bubble</td>
+                                <td>UNet</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>DeepONet</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>FNO</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>CNO</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+
+
+
+                    <div class="text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="p22">
+            <div class="row" style="border:none">
+                <div class="container" style="padding-top: 20px">
+
+    
+                    <p class="text-justify">
+                        Explanation
+                    </p>
+
+                    <table class="table table-bordered table-sm" style="width:68%;margin:auto">
+                        <thead>
+                            <tr>
+                                <th scope="col">Dataset</th>
+                                <th scope="col">Model</th>
+                                <th scope="col">MSE</th>
+                                <th scope="col">\(L_2\) error</th>
+                                <th scope="col">\(L_\infty\) error</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="4">Droplet</td>
+                                <td>UNet</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>DeepONet</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>FNO</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>CNO</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                    
+                            <tr>
+                                <td rowspan="4">Bubble</td>
+                                <td>UNet</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>DeepONet</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>FNO</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                            <tr>
+                                <td>CNO</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                                <td>1e-3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                        <div class="text-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    
+
+    </div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<hr/>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container" style="padding-top:100px; margin-top:-100px;">
     <h3 id="model" style="padding-top:100px; margin-top:-100px;text-align: center"><b>EAGLE</b> Benchmark Model</h3>
     <div class="col-md-12">
         <p class="text-justify">
@@ -567,12 +908,12 @@
             </ul>
         </div>
     </div>
-</div>
+</div> -->
 
-<br/>
-<hr/>
+<!-- <br/>
+<hr/> -->
 <!--ATTENTION VISUALISATION TOOL-->
-<div class="container" style="padding-top:100px; margin-top:-100px;">
+<!-- <div class="container" style="padding-top:100px; margin-top:-100px;">
     <h3 id="attention" style="padding-top:100px; margin-top:-100px;text-align: center">Attention Visualization Tool</h3>
     <div class="container">
         <p>To help you understand how our benchmark behaves, we built this visualisation tool by exporting the
@@ -614,10 +955,10 @@
     </div>
 </div>
 
-<br/>
+<br/> -->
 
 <!--RESULTS-->
-<div class="container" style="padding-top:100px; margin-top:-100px;">
+<!-- <div class="container" style="padding-top:100px; margin-top:-100px;">
     <h3 id="results" style="padding-top:100px; margin-top:-100px;">Results</h3>
     <div class="container">
         <h5><b>EAGLE</b></h5>
@@ -822,7 +1163,7 @@
         </div>
 
 
-    </div>
+    </div> -->
     <br/>
     <br/>
     <br/>
@@ -832,13 +1173,13 @@
         <br/>
         <br/>
         <div class="container text-center ">
-            <a href="https://datasets.liris.cnrs.fr/eagle-version1" class="link-primary">DOWNLOAD</a>
+            <!-- <a href="https://datasets.liris.cnrs.fr/eagle-version1" class="link-primary">DOWNLOAD</a> -->
         </div>
         <br/>
         <br/>
     </div>
 
-    <div class="container" style="padding-top:100px; margin-top:-100px;">
+    <!-- <div class="container" style="padding-top:100px; margin-top:-100px;">
         <h3 id="cite" style="padding-top:100px; margin-top:-100px;">Citation & Contact</h3>
         Do not hesitate to contact us for any questions about our project at this address : <a
             href="mailto: mail_address">steeven.janny@insa-lyon.fr</a>
@@ -856,19 +1197,19 @@
         year = "2023"}
     </pre>
         </div>
-    </div>
+    </div> -->
 
     <br/>
     <br/>
     <br/>
-    <div class="container" style="padding-top:100px; margin-top:-100px;">
+    <!-- <div class="container" style="padding-top:100px; margin-top:-100px;">
         <h3 id="funding" style="padding-top:100px; margin-top:-100px;">Funding</h3>
         This project is funded by the French National Research Agency (ANR) under the
         program "Données et a priori, apprentissage et contrôle – DeLiCio" (ANR-19-CE23-0006) of call "CE23 - Intelligence artificielle".
         <br/>
         <br/>
         <img src="assets/anr-logo-2021.png" style="width: 10%">
-    </div>
+    </div> -->
 
 
     <br/>
