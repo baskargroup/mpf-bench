@@ -708,16 +708,98 @@
         <a class="nav-item nav-link" href="#p22" data-toggle="tab">Sequence to Sequence</a>
     </nav>
 
+
+
     <div class="tab-content">
         <div class="tab-pane fade show active" id="p21">
             <div class="row" style="border:none">
-                <div class="container" style="padding-top: 20px">
+                <div class="container" style="padding-top: 20px">                   
+                    
                     
                     <p class="text-justify">
-                        Explanation
+                        The table above presents the results of our sequence-to-field predictions for both the bubble and drop datasets, evaluated across four different models: UNet, DeepONet, 
+                        Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this setup, the models were trained on a sequence of input time steps 
+                    [0, 5, 10, 15, 20] and were tasked with predicting the state of the system at time step [25]. This approach is crucial for understanding how well each model can capture and predict the evolution of the system over time, based on a given history.
                     </p>
                     
-                    <table class="table table-bordered table-sm" style="width:90%;margin:auto; text-align:center;">
+                    <ol style="text-align: justify;">
+                        <li style="margin-bottom: 25px;">
+                            <strong>UNet:</strong>
+                            
+                            <ul style="text-align: justify;">
+                                <li>
+                                    <strong>Bubble Dataset:</strong> UNet shows relatively low MSE and Relative L<sub>2</sub> Error, 
+                                    indicating that it is quite effective at capturing the overall field dynamics. However, its Relative L<sub>∞</sub> Error is higher, especially for the <i>v</i> and <i>p</i> channels, suggesting that UNet might struggle with capturing the extreme values or sharp features within these fields.
+                                </li>
+                                <li>
+                                    <strong>Drop Dataset:</strong> UNet performs exceptionally well with the lowest MSE and Relative L<sub>2</sub> 
+                                    Error among all models for most channels, indicating strong overall accuracy. However, the Relative L<sub>∞</sub> Error, while lower than in the bubble dataset, 
+                                    still suggests some difficulty in capturing the most extreme cases.
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li style="margin-bottom: 25px;">
+                            <strong>DeepONet:</strong>
+                            <ul style="text-align: justify;">
+                                <li>
+                                    <strong>Bubble Dataset:</strong> DeepONet exhibits the highest errors across all metrics compared to the other models. 
+                                    This suggests that DeepONet may not be as well-suited for this particular sequence-to-field task, particularly when dealing 
+                                    with complex, three-dimensional flows like those in the bubble dataset.
+                                </li>
+                                <li>
+                                    <strong>Drop Dataset:</strong> Although it shows improvement over its performance on the bubble dataset, 
+                                    DeepONet still generally lags behind the other models, especially in the Relative L<sub>∞</sub> Error, indicating 
+                                    potential difficulties in accurately capturing the flow dynamics at extreme values.
+                                </li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 25px;">
+                            <strong>FNO:</strong>
+                            <ul style="text-align: justify;">
+                                <li>
+                                    <strong>Bubble Dataset:</strong> FNO performs relatively well, with MSE and Relative L<sub>2</sub> Error close to
+                                     those of UNet. However, it shows higher Relative L<sub>∞</sub> Error, particularly in the <i>v</i> and <i>p</i> channels, 
+                                     indicating some challenges in handling the most complex flow structures.
+                                </li>
+                                <li>
+                                    <strong>Drop Dataset:</strong> FNO demonstrates strong performance with competitive MSE and Relative L<sub>2</sub> Error,
+                                     making it a robust choice for sequence-to-field predictions in this context. Nevertheless, like UNet, its Relative
+                                      L<sub>∞</sub> Error suggests some limitations in capturing peak dynamics.
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li style="margin-bottom: 25px;">
+                            <strong>CNO:</strong>
+                            <ul style="text-align: justify;">
+                                <li>
+                                    <strong>Bubble Dataset:</strong> CNO exhibits a balanced performance, with lower MSE compared to DeepONet but higher than UNet 
+                                    and FNO. Its Relative L<sub>2</sub> Error is somewhat elevated, but it performs better in Relative L<sub>∞</sub> Error, 
+                                    particularly for the <i>v</i> and <i>p</i> channels, indicating improved handling of extreme cases.
+                                </li>
+                                <li>
+                                    <strong>Drop Dataset:</strong> CNO shows competitive results, with its MSE and Relative L<sub>2</sub> Error being 
+                                    slightly higher than UNet but still within a reasonable range. Its Relative L<sub>∞</sub> Error is also notably lower 
+                                    than FNO and UNet, suggesting better robustness in predicting extreme values.
+                                </li>
+                            </ul>
+                        </li>
+
+
+                    </ol>
+
+
+
+                    <ol style="text-align: justify;">
+                      
+                    </ol>
+                    
+                    
+
+                    
+
+                    <table class="table table-bordered table-sm" style="width:85%;margin:auto; text-align:center;">
                         <thead style="border-bottom: 2px solid black;">
                             <tr>
                                 <th rowspan="2" style="vertical-align:middle;">Model</th>
@@ -727,11 +809,11 @@
                             </tr>
                             <tr>
                                 <th scope="col">MSE</th>
-                                <th scope="col">\(L_2\) error</th>
-                                <th scope="col">\(L_\infty\) error</th>
+                                <th scope="col">Relative \(L_2\) Error</th>
+                                <th scope="col">Relative \(L_\infty\) Error</th>
                                 <th scope="col">MSE</th>
-                                <th scope="col">\(L_2\) error</th>
-                                <th scope="col">\(L_\infty\) error</th>
+                                <th scope="col">Relative \(L_2\) Error</th>
+                                <th scope="col">Relative \(L_\infty\) Error</th>
                             </tr>
                         </thead>
                             <tbody>
@@ -840,55 +922,107 @@
                                 </tr>
 
                                 <tr>
-                                    <td rowspan="4">FNO</td>
+                                    <td rowspan="5">FNO</td>
+                                    <td>Full</td>
+                                    <td>2.064E-04 </td>
+                                    <td>3.984E-02 </td>
+                                    <td>5.807E-01</td>
+
+                                    <td>1.268E-06 </td>
+                                    <td>5.755E-03 </td>
+                                    <td>1.941E-02</td>
+                                </tr>
+                                <tr>
                                     <td>\(c\)</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
+                                    <td>4.963E-04 </td>
+                                    <td>5.973E-02 </td>
+                                    <td>1.153E+00 </td>
+
+                                    <td>2.875E-06</td>
+                                    <td>4.517E-03  </td>
+                                    <td>3.775E-02 </td>
                                 </tr>
                                 <tr>
                                     <td>\(u\)</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
+                                    <td>3.882E-06 </td>
+                                    <td>8.979E+00  </td>
+                                    <td>1.464E+01  </td>
+
+                                    <td>5.699E-07  </td>
+                                    <td>2.302E+00 </td>
+                                    <td>3.270E+00</td>
                                 </tr>
                                 <tr>
                                     <td>\(v\)</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
+                                    <td>5.934E-06 </td>
+                                    <td>1.998E+00</td>
+                                    <td>7.863E+00 </td>
+
+                                    <td>1.003E-06 </td>
+                                    <td>8.238E-01</td>
+                                    <td>1.594E+00</td>
                                 </tr>
                                 <tr>
                                     <td>\(p\)</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
+                                    <td>6.138E-06 </td>
+                                    <td>2.564E+03</td>
+                                    <td>4.454E+03 </td>
+
+                                    <td>5.060E-07</td>
+                                    <td>2.776E+04</td>
+                                    <td>2.334E+04 </td>
                                 </tr>
 
                                 <tr>
-                                    <td rowspan="4">CNO</td>
+                                    <td rowspan="5">CNO</td>
+                                    <td>Full</td>
+                                    <td>4.845E-05 </td>
+                                    <td>1.491E-02</td>
+                                    <td>2.991E-01 </td>
+
+                                    <td>1.859E-07 </td>
+                                    <td>2.100E-03 </td>
+                                    <td>8.722E-03 </td>
+                                </tr>
+                                <tr>
                                     <td>\(c\)</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
+                                    <td>1.229E-04</td>
+                                    <td>2.295E-02 </td>
+                                    <td>5.950E-01</td>
+
+                                    <td>2.534E-07 </td>
+                                    <td>1.303E-03</td>
+                                    <td>1.731E-02 </td>
                                 </tr>
                                 <tr>
                                     <td>\(u\)</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
+                                    <td>1.354E-07 </td>
+                                    <td>1.636E+00 </td>
+                                    <td>8.874E+00 </td>
+
+                                    <td>2.556E-08</td>
+                                    <td>4.943E-01</td>
+                                    <td>2.715E+00</td>
                                 </tr>
                                 <tr>
                                     <td>\(v\)</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
+                                    <td>1.459E-07</td>
+                                    <td>3.099E-01 </td>
+                                    <td>3.778E+00</td>
+
+                                    <td>7.852E-08</td>
+                                    <td>2.295E-01 </td>
+                                    <td>1.314E+00 </td>
                                 </tr>
                                 <tr>
                                     <td>\(p\)</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
-                                    <td>1e-3</td>
+                                    <td>6.698E-08 </td>
+                                    <td>2.682E+02</td>
+                                    <td>2.158E+03 </td>
+
+                                    <td>6.162E-08 </td>
+                                    <td>1.051E+04 </td>
+                                    <td>3.213E+04 </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -914,70 +1048,236 @@
                         Explanation
                     </p>
 
-                    <table class="table table-bordered table-sm" style="width:68%;margin:auto">
-                        <thead>
+                    <table class="table table-bordered table-sm" style="width:85%;margin:auto; text-align:center;">
+                        <thead style="border-bottom: 2px solid black;">
                             <tr>
-                                <th scope="col">Dataset</th>
-                                <th scope="col">Model</th>
+                                <th rowspan="2" style="vertical-align:middle;">Model</th>
+                                <th rowspan="2" style="vertical-align:middle;">Channel</th>
+                                <th colspan="3" style="border-bottom: none;">Bubble Dataset</th>
+                                <th colspan="3" style="border-bottom: none;">Drop Dataset</th>
+                            </tr>
+                            <tr>
                                 <th scope="col">MSE</th>
-                                <th scope="col">\(L_2\) error</th>
-                                <th scope="col">\(L_\infty\) error</th>
+                                <th scope="col">Relative \(L_2\) Error</th>
+                                <th scope="col">Relative \(L_\infty\) Error</th>
+                                <th scope="col">MSE</th>
+                                <th scope="col">Relative \(L_2\) Error</th>
+                                <th scope="col">Relative \(L_\infty\) Error</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="4">Droplet</td>
-                                <td>UNet</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                            </tr>
-                            <tr>
-                                <td>DeepONet</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                            </tr>
-                            <tr>
-                                <td>FNO</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                            </tr>
-                            <tr>
-                                <td>CNO</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                            </tr>
-                    
-                            <tr>
-                                <td rowspan="4">Bubble</td>
-                                <td>UNet</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                            </tr>
-                            <tr>
-                                <td>DeepONet</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                            </tr>
-                            <tr>
-                                <td>FNO</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                            </tr>
-                            <tr>
-                                <td>CNO</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                                <td>1e-3</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="5">UNet</td>
+                                    <td>Full</td>
+                                    <td>2.566E-04  </td>
+                                    <td>4.228E-02 </td>
+                                    <td>7.893E-01 </td>
+
+                                    <td>1.068E-07  </td>
+                                    <td>1.680E-03 </td>
+                                    <td>1.394E-02  </td>
+                                </tr>
+                                <tr>
+                                    <td>\(c\)</td>
+                                    <td>6.499E-04  </td>
+                                    <td>5.794E-02  </td>
+                                    <td>1.097E+00 </td>
+
+                                    <td>1.806E-07 </td>
+                                    <td>1.106E-03  </td>
+                                    <td>1.970E-02 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(u\)</td>
+                                    <td>8.463E-08 </td>
+                                    <td>2.032E+00   </td>
+                                    <td>7.073E+00 </td>
+
+                                    <td>1.061E-07 </td>
+                                    <td>9.286E-01  </td>
+                                    <td>4.132E+00 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(v\)</td>
+                                    <td>4.207E-07  </td>
+                                    <td>1.557E+00  </td>
+                                    <td>4.986E+00  </td>
+
+                                    <td>5.332E-08  </td>
+                                    <td>1.827E-01  </td>
+                                    <td>1.467E+00 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(p\)</td>
+                                    <td>6.991E-08  </td>
+                                    <td>2.402E+02  </td>
+                                    <td>2.072E+03 </td>
+
+                                    <td>1.912E-08  </td>
+                                    <td>5.501E+03  </td>
+                                    <td>2.324E+04 </td>
+                                </tr>
+
+                        
+                                <tr>
+                                    <td rowspan="5">DeepONet</td>
+                                    <td>Full</td>
+                                    <td>1.216E-03 </td>
+                                    <td>1.008E-01  </td>
+                                    <td>9.040E-01  </td>
+
+                                    <td>1.415E-05 </td>
+                                    <td>1.177E-02 </td>
+                                    <td>1.134E-01 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(c\)</td>
+                                    <td>3.063E-03  </td>
+                                    <td>1.407E-01  </td>
+                                    <td>1.382E+00 </td>
+
+                                    <td>3.484E-05 </td>
+                                    <td>9.569E-03  </td>
+                                    <td>1.972E-01 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(u\)</td>
+                                    <td>8.260E-07  </td>
+                                    <td>9.846E+00  </td>
+                                    <td>1.265E+01  </td>
+
+                                    <td>2.020E-08  </td>
+                                    <td>4.321E-01 </td>
+                                    <td>8.025E-01 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(v\)</td>
+                                    <td>8.505E-07  </td>
+                                    <td>3.410E+00 </td>
+                                    <td>5.359E+00 </td>
+
+                                    <td>3.316E-08 </td>
+                                    <td>1.358E-01</td>
+                                    <td>6.005E-01  </td>
+                                </tr>
+                                <tr>
+                                    <td>\(p\)</td>
+                                    <td>8.951E-07  </td>
+                                    <td>8.528E+02  </td>
+                                    <td>1.645E+03 </td>
+
+                                    <td>3.592E-09 </td>
+                                    <td>2.277E+03</td>
+                                    <td>5.583E+03 </td>
+                                </tr>
+
+                                <tr>
+                                    <td rowspan="5">FNO</td>
+                                    <td>Full</td>
+                                    <td>2.740E-04  </td>
+                                    <td>4.717E-02  </td>
+                                    <td>7.177E-01 </td>
+
+                                    <td>1.360E-07 </td>
+                                    <td>1.876E-03</td>
+                                    <td>8.816E-03  </td>
+                                </tr>
+                                <tr>
+                                    <td>\(c\)</td>
+                                    <td>6.619E-04 </td>
+                                    <td>6.780E-02 </td>
+                                    <td>1.087E+00  </td>
+
+                                    <td>2.591E-07 </td>
+                                    <td>1.349E-03  </td>
+                                    <td>1.391E-02 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(u\)</td>
+                                    <td>3.546E-06</td>
+                                    <td>1.971E+01 </td>
+                                    <td>1.837E+01</td>
+
+                                    <td>6.049E-08 </td>
+                                    <td>7.221E-01  </td>
+                                    <td>1.340E+00 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(v\)</td>
+                                    <td>2.236E-06  </td>
+                                    <td>3.711E+00 </td>
+                                    <td>4.881E+00 </td>
+
+                                    <td>1.075E-07  </td>
+                                    <td>2.338E-01</td>
+                                    <td>9.040E-01</td>
+                                </tr>
+                                <tr>
+                                    <td>\(p\)</td>
+                                    <td>2.464E-06 </td>
+                                    <td>1.313E+03 </td>
+                                    <td>2.116E+03 </td>
+
+                                    <td>2.122E-08 </td>
+                                    <td>5.563E+03 </td>
+                                    <td>7.248E+03 </td>
+                                </tr>
+
+                                <tr>
+                                    <td rowspan="5">CNO</td>
+                                    <td>Full</td>
+                                    <td>8.503E-05 </td>
+                                    <td>2.069E-02  </td>
+                                    <td>5.046E-01 </td>
+
+                                    <td>8.305E-07 </td>
+                                    <td>4.303E-03 </td>
+                                    <td>2.426E-02</td>
+                                </tr>
+                                <tr>
+                                    <td>\(c\)</td>
+                                    <td>2.157E-04  </td>
+                                    <td>2.890E-02</td>
+                                    <td>6.412E-01 </td>
+
+                                    <td>1.593E-06    </td>
+                                    <td>3.023E-03 </td>
+                                    <td>3.998E-02 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(u\)</td>
+                                    <td>1.508E-07  </td>
+                                    <td>2.804E+00</td>
+                                    <td>5.520E+00  </td>
+
+                                    <td>1.499E-07 </td>
+                                    <td>1.109E+00 </td>
+                                    <td>3.103E+00 </td>
+                                </tr>
+                                <tr>
+                                    <td>\(v\)</td>
+                                    <td>2.424E-07 </td>
+                                    <td>1.043E+00 </td>
+                                    <td>2.725E+00</td>
+
+                                    <td>3.452E-07</td>
+                                    <td>4.633E-01</td>
+                                    <td>1.623E+00</td>
+                                </tr>
+                                <tr>
+                                    <td>\(p\)</td>
+                                    <td>9.644E-08 </td>
+                                    <td>2.864E+02 </td>
+                                    <td>7.812E+02 </td>
+
+                                    <td>3.588E-08 </td>
+                                    <td>7.606E+03</td>
+                                    <td>2.718E+04 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
                         <div class="text-center">
                         </div>
                     </div>
