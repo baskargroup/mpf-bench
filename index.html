@@ -233,7 +233,7 @@
         <a class="nav-item nav-link" href="#p2" data-toggle="tab">Bubble Dataset</a>
         <a class="nav-item nav-link" href="#p3" data-toggle="tab">Overview</a>
         <a class="nav-item nav-link" href="#p4" data-toggle="tab">Statistics</a>
-        <a class="nav-item nav-link" href="#p5" data-toggle="tab">Down-sampling</a>
+        <a class="nav-item nav-link" href="#p5" data-toggle="tab">Sample Dataset</a>
     </nav>
 
     <div class="tab-content">
@@ -393,10 +393,91 @@
                                  (Re) and Bond (Bo) numbers on bubble deformation. As Re and Bo numbers increase, the bubble exhibits more complex and challenging dynamics, 
                                  demonstrating the varying levels of difficulty in predicting bubble behavior across different flow regimes.</p> <!-- Visible description below the image -->
                         </div>
-            
+
                         <p class="text-justify">
-                            <!-- Continue with any additional text if needed -->
+                            We provide a comprehensive table to help users select the most suitable cases for training and evaluating their models. Our dataset includes variations in key parameters, 
+                            such as the Reynolds number (Re), Rho Ratio, Viscosity Ratio, and Bond Number (Bo). The Rho Ratio ranges from 10 to 1000, Viscosity Ratio varies between 1 and 100, and the Bo number 
+                            spans from 10 to 500. Notably, the Reynolds number in bubble simulations varies from 10 to 500, while in drop simulations, it extends from 10 to 1000. Due to the inherent fluid properties, 
+                            the Viscosity Ratio is proportional to the Density Ratio, meaning that both are typically either high or low together. To aid in model development, we’ve created a normalized difficulty 
+                            scale based on the complexity of capturing interface deformations. This relative difficulty rating guides users in selecting cases, with most scenarios following this established pattern.
                         </p>
+                        <br/>
+                        <br/>
+
+                        <div style="text-align: center;">
+                            <table class="table table-bordered table-sm" style="width:68%;margin:auto">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Density Ratio</th>
+                                        <th scope="col">Viscosity Ratio</th>
+                                        <th scope="col">\(Bo\) Number</th>
+                                        <th scope="col">\(Re\) Number</th>
+                                        <th scope="col">Difficulty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>High</td>
+                                        <td>High</td>
+                                        <td>High</td>
+                                        <td>High</td>
+                                        <td>8/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High</td>
+                                        <td>High</td>
+                                        <td>Low</td>
+                                        <td>Low</td>
+                                        <td>3/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High</td>
+                                        <td>High</td>
+                                        <td>High</td>
+                                        <td>Low</td>
+                                        <td>5/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High</td>
+                                        <td>High</td>
+                                        <td>Low</td>
+                                        <td>High</td>
+                                        <td>7/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low</td>
+                                        <td>Low</td>
+                                        <td>High</td>
+                                        <td>High</td>
+                                        <td>10/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low</td>
+                                        <td>Low</td>
+                                        <td>Low</td>
+                                        <td>Low</td>
+                                        <td>3/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low</td>
+                                        <td>Low</td>
+                                        <td>High</td>
+                                        <td>Low</td>
+                                        <td>2/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Low</td>
+                                        <td>Low</td>
+                                        <td>Low</td>
+                                        <td>High</td>
+                                        <td>7/10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+            
+
                     </div>
                 </div>
             </div>
@@ -406,13 +487,17 @@
         <div class="tab-pane fade" id="p4">
             <div class="row" style="border:none">
                 <div class="container" style="padding-top: 20px">
+                    <p class="text-justify">
                     <b>MPF-Bench</b> dataset is extensive, comprising a total of 11,000 simulations divided equally between bubble and droplet dynamics, 
                     with each category further broken down into 2D and 3D simulations. For both 2D and 3D simulations, we provide detailed input parameters, 
                     including the density ratio, viscosity ratio, Reynolds number, and Bond number. These inputs are critical in determining the complex flow behaviors 
                     captured in the dataset. The outputs of our simulations include key fields such as the interface indicator, velocity components in all directions, 
                     pressure, and density, which provide a comprehensive view of the multiphase flow dynamics. The dataset is structured in a way that allows for easy 
                     integration into Scientific Machine Learning (SciML) models, facilitating advancements in the understanding and prediction of multiphase flow phenomena.
+                </p>
                     <br/><br/><br/>
+
+
 
                     <table class="table table-bordered table-sm" style="width:68%;margin:auto">
                         <thead>
@@ -489,15 +574,22 @@
                             </td>
                         </tr>
                     </table> -->
+                    <p class="text-justify">
                     To facilitate easier access and experimentation with our extensive dataset, we have provided a down-sampled version. 
                     This sample dataset is specifically tailored for quick testing and prototyping, containing 100 simulations for each of the 2D categories 
                     and 5 simulations for each of the 3D categories. Each of these simulations is further simplified, with only 10 time steps included. 
                     This allows users to get a taste of the full dataset's capabilities without the need for extensive computational resources or time commitment. 
                     The down-sampled dataset serves as an excellent starting point for researchers and developers to explore the dynamics of droplet and bubble behaviors 
                     in both 2D and 3D, making it easier to test ideas and methodologies before scaling up to the full dataset.
-                    <br/><br/><br/>
+                </p>
+                    <br/><br/>
 
-                    <table class="table table-bordered table-sm" style="width:68%;margin:auto">
+                    <div class="container text-center ">
+                        <a href="https://" class="link-primary">DOWNLOAD</a>
+                    </div>
+
+
+                    <!-- <table class="table table-bordered table-sm" style="width:68%;margin:auto">
                         <thead>
                             <tr>
                                 <th scope="col">Dataset</th>
@@ -537,7 +629,7 @@
                                 <td>566 GB</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
 
                 </div>
             </div>
@@ -717,7 +809,7 @@
                     
                     
                     <p class="text-justify">
-                        The table above presents the results of our sequence-to-field predictions for both the bubble and drop datasets, evaluated across four different models: UNet, DeepONet, 
+                        The table below presents the results of our sequence-to-field predictions for both the bubble and drop datasets, evaluated across four different models: UNet, DeepONet, 
                         Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this setup, the models were trained on a sequence of input time steps 
                     [0, 5, 10, 15, 20] and were tasked with predicting the state of the system at time step [25]. This approach is crucial for understanding how well each model can capture and predict the evolution of the system over time, based on a given history.
                     </p>
@@ -1047,6 +1139,73 @@
                     <p class="text-justify">
                         Explanation
                     </p>
+
+                    <p class="text-justify">
+                        The table below displays the outcomes of our sequence-to-sequence predictions for both the bubble and drop datasets, assessed across four different models: UNet, DeepONet, 
+                        Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this experiment, the models were trained on a sequence of input time steps 
+                        [0, 5, 10, 15, 20] and tasked with predicting the system's state over the subsequent time steps [25, 26, 27, 28, 29]. This approach is critical for evaluating how well each model can 
+                        forecast the system's progression over a sequence of time, based on the given historical data.
+                    </p>
+                                        
+                    <ol style="text-align: justify;">
+                        <li style="margin-bottom: 25px;">
+                            <strong>UNet:</strong>
+                            
+                            <ul style="text-align: justify;">
+                                <li>
+                                    <strong>Bubble Dataset:</strong> UNet maintains low MSE and Relative L<sub>2</sub> Error, demonstrating its efficiency in handling sequential predictions. 
+                                    However, its Relative L<sub>∞</sub> Error remains higher, particularly in the <i>v</i> and <i>p</i> channels, indicating that it may face challenges in accurately capturing extreme values or maintaining performance across multiple time steps.
+                                </li>
+                                <li>
+                                    <strong>Drop Dataset:</strong> UNet performs remarkably well with the lowest MSE and Relative L<sub>2</sub> Error, excelling in predicting sequential frames. 
+                                    Nonetheless, the higher Relative L<sub>∞</sub> Error in some channels suggests difficulties in accurately predicting extreme cases over a series of time steps.
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li style="margin-bottom: 25px;">
+                            <strong>DeepONet:</strong>
+                            <ul style="text-align: justify;">
+                                <li>
+                                    <strong>Bubble Dataset:</strong> DeepONet exhibits higher errors across all metrics compared to the other models, suggesting that it might not be well-suited for this 
+                                    sequence-to-sequence task, particularly when predicting multiple future states in complex fluid flows.
+                                </li>
+                                <li>
+                                    <strong>Drop Dataset:</strong> Although DeepONet performs better on the drop dataset compared to the bubble dataset, it still generally trails behind the other models, 
+                                    especially in the Relative L<sub>∞</sub> Error, indicating challenges in maintaining accuracy over multiple time steps.
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li style="margin-bottom: 25px;">
+                            <strong>FNO:</strong>
+                            <ul style="text-align: justify;">
+                                <li>
+                                    <strong>Bubble Dataset:</strong> FNO shows competitive performance, particularly in MSE and Relative L<sub>2</sub> Error, indicating its robustness in handling 
+                                    sequence-to-sequence predictions. However, the higher Relative L<sub>∞</sub> Error, especially in the <i>v</i> and <i>p</i> channels, suggests challenges in managing complex flow dynamics over multiple time steps.
+                                </li>
+                                <li>
+                                    <strong>Drop Dataset:</strong> FNO continues to demonstrate strong performance with relatively low errors across all metrics, making it a solid choice for sequential predictions. 
+                                    Yet, the higher Relative L<sub>∞</sub> Error indicates potential difficulties in accurately predicting extreme behaviors over an extended sequence.
+                                </li>
+                            </ul>
+                        </li>
+                    
+                        <li style="margin-bottom: 25px;">
+                            <strong>CNO:</strong>
+                            <ul style="text-align: justify;">
+                                <li>
+                                    <strong>Bubble Dataset:</strong> CNO continues to deliver a balanced performance, with MSE and Relative L<sub>2</sub> Error lower than DeepONet but slightly higher than UNet and FNO. 
+                                    Its Relative L<sub>∞</sub> Error is relatively high, particularly in the <i>p</i> channel, indicating challenges in predicting extreme values over the sequence.
+                                </li>
+                                <li>
+                                    <strong>Drop Dataset:</strong> CNO performs well overall, with competitive MSE and Relative L<sub>2</sub> Error, and it shows the lowest Relative L<sub>∞</sub> Error in some channels, 
+                                    making it a strong candidate for sequence-to-sequence tasks, especially where robustness to outliers is important.
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    
 
                     <table class="table table-bordered table-sm" style="width:85%;margin:auto; text-align:center;">
                         <thead style="border-bottom: 2px solid black;">
