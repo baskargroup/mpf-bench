@@ -109,7 +109,7 @@
             <td><a href="https://scholar.google.com/citations?user=c_d8jmgAAAAJ&hl=en" class="link-dark">Ronak Tali</a></td>
             <td><a href="https://scholar.google.com/citations?user=iR7jCn8AAAAJ&hl=en" class="link-dark">Ali Rabeh</a></td>
             <td><a href="https://scholar.google.com/citations?user=RZqCEWIAAAAJ" class="link-dark">Cheng-Hau Yang</a></td>
-            <td><a href="https://thome.isir.upmc.fr/" class="link-dark">Abhisek Upadhyaya</a></td>
+            <td><a href="https://" class="link-dark">Abhisek Upadhyaya</a></td>
             <td><a href="https://scholar.google.com/citations?user=iVTMSxoAAAAJ&hl=en" class="link-dark">Adarsh Krishnamurthy</a></td>
         </tr>
         <tr>
@@ -585,7 +585,7 @@
                     <br/><br/>
 
                     <div class="container text-center ">
-                        <a href="https://" class="link-primary">DOWNLOAD</a>
+                        <a href="https://huggingface.co/datasets/BGLab/mpf-bench/tree/main/Sample%20Dataset" class="link-primary">DOWNLOAD</a>
                     </div>
 
 
@@ -798,6 +798,7 @@
     <nav class="nav nav-tabs nav-justified">
         <a class="nav-item nav-link active" href="#p21" data-toggle="tab">Sequence to Field</a>
         <a class="nav-item nav-link" href="#p22" data-toggle="tab">Sequence to Sequence</a>
+        <a class="nav-item nav-link" href="#p23" data-toggle="tab">Loss Analysis</a>
     </nav>
 
 
@@ -813,7 +814,13 @@
                         Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this setup, the models were trained on a sequence of input time steps 
                     [0, 5, 10, 15, 20] and were tasked with predicting the state of the system at time step [25]. This approach is crucial for understanding how well each model can capture and predict the evolution of the system over time, based on a given history.
                     </p>
-                    
+
+                    <p class="text-justify">
+                        CNO appears to perform better than the other three networks across all metrics (MSE, \(L_2\), \(L_\infty\)). However, all models' performances are within the same order of magnitude. The higher \(L_2\) 
+                        and Linifinty errors for pressure, \(p\), are likely due to its lower smoothness compared to other fields (\(u\), \(v\), \(c\)), and sudden jumps in the pressure field make it more challenging for 
+                        neural operators to learn effectively.
+                    </p>
+<!--                     
                     <ol style="text-align: justify;">
                         <li style="margin-bottom: 25px;">
                             <strong>UNet:</strong>
@@ -879,19 +886,14 @@
                         </li>
 
 
-                    </ol>
+                    </ol> -->
 
-
-
-                    <ol style="text-align: justify;">
-                      
-                    </ol>
                     
                     
 
                     
 
-                    <table class="table table-bordered table-sm" style="width:85%;margin:auto; text-align:center;">
+                    <table class="table table-bordered table-sm" style="width:80%;margin:auto; text-align:center;">
                         <thead style="border-bottom: 2px solid black;">
                             <tr>
                                 <th rowspan="2" style="vertical-align:middle;">Model</th>
@@ -901,223 +903,204 @@
                             </tr>
                             <tr>
                                 <th scope="col">MSE</th>
-                                <th scope="col">Relative \(L_2\) Error</th>
-                                <th scope="col">Relative \(L_\infty\) Error</th>
+                                <th scope="col">\(L_2\) Error</th>
+                                <th scope="col">\(L_\infty\) Error</th>
                                 <th scope="col">MSE</th>
-                                <th scope="col">Relative \(L_2\) Error</th>
-                                <th scope="col">Relative \(L_\infty\) Error</th>
+                                <th scope="col">\(L_2\) Error</th>
+                                <th scope="col">\(L_\infty\) Error</th>
                             </tr>
                         </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowspan="5">UNet</td>
-                                    <td>Full</td>
-                                    <td>2.826E-04</td>
-                                    <td>4.020E-02</td>
-                                    <td>5.942E-01</td>
-
-                                    <td>6.569E-08</td>
-                                    <td>1.305E-03</td>
-                                    <td>8.909E-03</td>
-                                </tr>
-                                <tr>
-                                    <td>\(c\)</td>
-                                    <td>7.150E-04</td>
-                                    <td>6.194E-02</td>
-                                    <td>1.187E+00</td>
-
-                                    <td>1.251E-07</td>
-                                    <td>9.151E-04</td>
-                                    <td>1.714E-02</td>
-                                </tr>
-                                <tr>
-                                    <td>\(u\)</td>
-                                    <td>1.113E-07</td>
-                                    <td>1.491E+00</td>
-                                    <td>1.074E+01</td>
-
-                                    <td>2.267E-08</td>
-                                    <td>4.579E-01</td>
-                                    <td>1.933E+00</td>
-                                </tr>
-                                <tr>
-                                    <td>\(v\)</td>
-                                    <td>4.546E-07</td>
-                                    <td>5.503E-01</td>
-                                    <td>3.623E+00</td>
-
-                                    <td>3.462E-08</td>
-                                    <td>1.585E-01</td>
-                                    <td>1.446E+00</td>
-                                </tr>
-                                <tr>
-                                    <td>\(p\)</td>
-                                    <td>9.520E-08</td>
-                                    <td>3.193E+02</td>
-                                    <td>3.153E+03</td>
-
-                                    <td>1.682E-08</td>
-                                    <td>5.503E+03</td>
-                                    <td>3.915E+04</td>
-                                </tr>
-
-                        
-                                <tr>
-                                    <td rowspan="5">DeepONet</td>
-                                    <td>Full</td><td>1.255E-03</td>
-                                    <td>1.020E-01 </td>
-                                    <td>8.398E-01 </td>
-
-                                    <td>1.005E-05</td>
-                                    <td>1.145E-02</td>
-                                    <td>9.893E-02</td>
-                                </tr>
-                                <tr>
-                                    <td>\(c\)</td>
-                                    <td>3.161E-03</td>
-                                    <td>1.569E-01 </td>
-                                    <td>1.679E+00 </td>
-
-                                    <td>2.445E-05</td>
-                                    <td>9.277E-03</td>
-                                    <td>1.963E-01</td>
-                                </tr>
-                                <tr>
-                                    <td>\(u\)</td>
-                                    <td>5.699E-07 </td>
-                                    <td>3.346E+00</td>
-                                    <td>6.226E+00 </td>
-
-                                    <td>3.501E-08</td>
-                                    <td>5.928E-01</td>
-                                    <td>9.013E-01</td>
-                                </tr>
-                                <tr>
-                                    <td>\(v\)</td>
-                                    <td>5.056E-07</td>
-                                    <td>5.673E-01</td>
-                                    <td>2.444E+00 </td>
-
-                                    <td>8.821E-08</td>
-                                    <td>2.467E-01</td>
-                                    <td>6.024E-01</td>
-                                </tr>
-                                <tr>
-                                    <td>\(p\)</td>
-                                    <td>5.658E-07</td>
-                                    <td>7.570E+02</td>
-                                    <td>1.740E+03</td>
-
-                                    <td>7.779E-08</td>
-                                    <td>1.183E+04</td>
-                                    <td>4.689E+03 </td>
-                                </tr>
-
-                                <tr>
-                                    <td rowspan="5">FNO</td>
-                                    <td>Full</td>
-                                    <td>2.064E-04 </td>
-                                    <td>3.984E-02 </td>
-                                    <td>5.807E-01</td>
-
-                                    <td>1.268E-06 </td>
-                                    <td>5.755E-03 </td>
-                                    <td>1.941E-02</td>
-                                </tr>
-                                <tr>
-                                    <td>\(c\)</td>
-                                    <td>4.963E-04 </td>
-                                    <td>5.973E-02 </td>
-                                    <td>1.153E+00 </td>
-
-                                    <td>2.875E-06</td>
-                                    <td>4.517E-03  </td>
-                                    <td>3.775E-02 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(u\)</td>
-                                    <td>3.882E-06 </td>
-                                    <td>8.979E+00  </td>
-                                    <td>1.464E+01  </td>
-
-                                    <td>5.699E-07  </td>
-                                    <td>2.302E+00 </td>
-                                    <td>3.270E+00</td>
-                                </tr>
-                                <tr>
-                                    <td>\(v\)</td>
-                                    <td>5.934E-06 </td>
-                                    <td>1.998E+00</td>
-                                    <td>7.863E+00 </td>
-
-                                    <td>1.003E-06 </td>
-                                    <td>8.238E-01</td>
-                                    <td>1.594E+00</td>
-                                </tr>
-                                <tr>
-                                    <td>\(p\)</td>
-                                    <td>6.138E-06 </td>
-                                    <td>2.564E+03</td>
-                                    <td>4.454E+03 </td>
-
-                                    <td>5.060E-07</td>
-                                    <td>2.776E+04</td>
-                                    <td>2.334E+04 </td>
-                                </tr>
-
-                                <tr>
-                                    <td rowspan="5">CNO</td>
-                                    <td>Full</td>
-                                    <td>4.845E-05 </td>
-                                    <td>1.491E-02</td>
-                                    <td>2.991E-01 </td>
-
-                                    <td>1.859E-07 </td>
-                                    <td>2.100E-03 </td>
-                                    <td>8.722E-03 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(c\)</td>
-                                    <td>1.229E-04</td>
-                                    <td>2.295E-02 </td>
-                                    <td>5.950E-01</td>
-
-                                    <td>2.534E-07 </td>
-                                    <td>1.303E-03</td>
-                                    <td>1.731E-02 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(u\)</td>
-                                    <td>1.354E-07 </td>
-                                    <td>1.636E+00 </td>
-                                    <td>8.874E+00 </td>
-
-                                    <td>2.556E-08</td>
-                                    <td>4.943E-01</td>
-                                    <td>2.715E+00</td>
-                                </tr>
-                                <tr>
-                                    <td>\(v\)</td>
-                                    <td>1.459E-07</td>
-                                    <td>3.099E-01 </td>
-                                    <td>3.778E+00</td>
-
-                                    <td>7.852E-08</td>
-                                    <td>2.295E-01 </td>
-                                    <td>1.314E+00 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(p\)</td>
-                                    <td>6.698E-08 </td>
-                                    <td>2.682E+02</td>
-                                    <td>2.158E+03 </td>
-
-                                    <td>6.162E-08 </td>
-                                    <td>1.051E+04 </td>
-                                    <td>3.213E+04 </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <tbody>
+                            <tr>
+                                <td rowspan="5">UNet</td>
+                                <td>Full</td>
+                                <td>2.83 × 10<sup>-4</sup></td>
+                                <td>4.02 × 10<sup>-2</sup></td>
+                                <td>5.94 × 10<sup>-1</sup></td>
+                                <td>6.57 × 10<sup>-8</sup></td>
+                                <td>1.31 × 10<sup>-3</sup></td>
+                                <td>8.91 × 10<sup>-3</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(c\)</td>
+                                <td>7.15 × 10<sup>-4</sup></td>
+                                <td>6.19 × 10<sup>-2</sup></td>
+                                <td>1.19 × 10<sup>0</sup></td>
+                                <td>1.25 × 10<sup>-7</sup></td>
+                                <td>9.15 × 10<sup>-4</sup></td>
+                                <td>1.71 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>1.11 × 10<sup>-7</sup></td>
+                                <td>1.49 × 10<sup>0</sup></td>
+                                <td>1.07 × 10<sup>1</sup></td>
+                                <td>2.27 × 10<sup>-8</sup></td>
+                                <td>4.58 × 10<sup>-1</sup></td>
+                                <td>1.93 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>4.55 × 10<sup>-7</sup></td>
+                                <td>5.50 × 10<sup>-1</sup></td>
+                                <td>3.62 × 10<sup>0</sup></td>
+                                <td>3.46 × 10<sup>-8</sup></td>
+                                <td>1.59 × 10<sup>-1</sup></td>
+                                <td>1.45 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>9.52 × 10<sup>-8</sup></td>
+                                <td>3.19 × 10<sup>2</sup></td>
+                                <td>3.15 × 10<sup>3</sup></td>
+                                <td>1.68 × 10<sup>-8</sup></td>
+                                <td>5.50 × 10<sup>3</sup></td>
+                                <td>3.92 × 10<sup>4</sup></td>
+                            </tr>
+                    
+                            <tr>
+                                <td rowspan="5">DeepONet</td>
+                                <td>Full</td>
+                                <td>1.26 × 10<sup>-3</sup></td>
+                                <td>1.02 × 10<sup>-1</sup></td>
+                                <td>8.40 × 10<sup>-1</sup></td>
+                                <td>1.01 × 10<sup>-5</sup></td>
+                                <td>1.15 × 10<sup>-2</sup></td>
+                                <td>9.89 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(c\)</td>
+                                <td>3.16 × 10<sup>-3</sup></td>
+                                <td>1.57 × 10<sup>-1</sup></td>
+                                <td>1.68 × 10<sup>0</sup></td>
+                                <td>2.45 × 10<sup>-5</sup></td>
+                                <td>9.28 × 10<sup>-3</sup></td>
+                                <td>1.96 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>5.70 × 10<sup>-7</sup></td>
+                                <td>3.35 × 10<sup>0</sup></td>
+                                <td>6.23 × 10<sup>0</sup></td>
+                                <td>3.50 × 10<sup>-8</sup></td>
+                                <td>5.93 × 10<sup>-1</sup></td>
+                                <td>9.01 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>5.06 × 10<sup>-7</sup></td>
+                                <td>5.67 × 10<sup>-1</sup></td>
+                                <td>2.44 × 10<sup>0</sup></td>
+                                <td>8.82 × 10<sup>-8</sup></td>
+                                <td>2.47 × 10<sup>-1</sup></td>
+                                <td>6.02 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>5.66 × 10<sup>-7</sup></td>
+                                <td>7.57 × 10<sup>2</sup></td>
+                                <td>1.74 × 10<sup>3</sup></td>
+                                <td>7.78 × 10<sup>-8</sup></td>
+                                <td>1.18 × 10<sup>4</sup></td>
+                                <td>4.69 × 10<sup>3</sup></td>
+                            </tr>
+                    
+                            <tr>
+                                <td rowspan="5">FNO</td>
+                                <td>Full</td>
+                                <td>2.06 × 10<sup>-4</sup></td>
+                                <td>3.98 × 10<sup>-2</sup></td>
+                                <td>5.81 × 10<sup>-1</sup></td>
+                                <td>1.27 × 10<sup>-6</sup></td>
+                                <td>5.76 × 10<sup>-3</sup></td>
+                                <td>1.94 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(c\)</td>
+                                <td>4.96 × 10<sup>-4</sup></td>
+                                <td>5.97 × 10<sup>-2</sup></td>
+                                <td>1.15 × 10<sup>0</sup></td>
+                                <td>2.88 × 10<sup>-6</sup></td>
+                                <td>4.52 × 10<sup>-3</sup></td>
+                                <td>3.78 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>3.88 × 10<sup>-6</sup></td>
+                                <td>8.98 × 10<sup>0</sup></td>
+                                <td>1.46 × 10<sup>1</sup></td>
+                                <td>5.70 × 10<sup>-7</sup></td>
+                                <td>2.30 × 10<sup>0</sup></td>
+                                <td>3.27 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>5.93 × 10<sup>-6</sup></td>
+                                <td>1.99 × 10<sup>0</sup></td>
+                                <td>7.86 × 10<sup>0</sup></td>
+                                <td>1.00 × 10<sup>-6</sup></td>
+                                <td>8.24 × 10<sup>-1</sup></td>
+                                <td>1.59 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>6.14 × 10<sup>-6</sup></td>
+                                <td>2.56 × 10<sup>3</sup></td>
+                                <td>4.45 × 10<sup>3</sup></td>
+                                <td>5.06 × 10<sup>-7</sup></td>
+                                <td>2.78 × 10<sup>4</sup></td>
+                                <td>2.33 × 10<sup>4</sup></td>
+                            </tr>
+                    
+                            <tr>
+                                <td rowspan="5">CNO</td>
+                                <td>Full</td>
+                                <td>4.85 × 10<sup>-5</sup></td>
+                                <td>1.49 × 10<sup>-2</sup></td>
+                                <td>2.99 × 10<sup>-1</sup></td>
+                                <td>1.86 × 10<sup>-7</sup></td>
+                                <td>2.10 × 10<sup>-3</sup></td>
+                                <td>8.72 × 10<sup>-3</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(c\)</td>
+                                <td>1.23 × 10<sup>-4</sup></td>
+                                <td>2.30 × 10<sup>-2</sup></td>
+                                <td>5.95 × 10<sup>-1</sup></td>
+                                <td>2.53 × 10<sup>-7</sup></td>
+                                <td>1.30 × 10<sup>-3</sup></td>
+                                <td>1.73 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>1.35 × 10<sup>-7</sup></td>
+                                <td>1.64 × 10<sup>0</sup></td>
+                                <td>8.87 × 10<sup>0</sup></td>
+                                <td>2.56 × 10<sup>-8</sup></td>
+                                <td>4.94 × 10<sup>-1</sup></td>
+                                <td>2.72 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>1.46 × 10<sup>-7</sup></td>
+                                <td>3.10 × 10<sup>-1</sup></td>
+                                <td>3.78 × 10<sup>0</sup></td>
+                                <td>7.85 × 10<sup>-8</sup></td>
+                                <td>2.30 × 10<sup>-1</sup></td>
+                                <td>1.31 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>6.70 × 10<sup>-8</sup></td>
+                                <td>2.68 × 10<sup>2</sup></td>
+                                <td>2.16 × 10<sup>3</sup></td>
+                                <td>6.16 × 10<sup>-8</sup></td>
+                                <td>1.05 × 10<sup>4</sup></td>
+                                <td>3.21 × 10<sup>4</sup></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
                     
                     
                     
@@ -1135,19 +1118,22 @@
             <div class="row" style="border:none">
                 <div class="container" style="padding-top: 20px">
 
-    
-                    <p class="text-justify">
-                        Explanation
-                    </p>
-
                     <p class="text-justify">
                         The table below displays the outcomes of our sequence-to-sequence predictions for both the bubble and drop datasets, assessed across four different models: UNet, DeepONet, 
                         Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this experiment, the models were trained on a sequence of input time steps 
                         [0, 5, 10, 15, 20] and tasked with predicting the system's state over the subsequent time steps [25, 26, 27, 28, 29]. This approach is critical for evaluating how well each model can 
                         forecast the system's progression over a sequence of time, based on the given historical data.
                     </p>
+    
+                    <p class="text-justify">
+                        CNO appears to perform better than the other three networks across all metrics (MSE, \(L_2\), \(L_\infty\)). However, all models' performances are within the same order of magnitude. The higher \(L_2\) 
+                        and Linifinty errors for pressure, \(p\), are likely due to its lower smoothness compared to other fields (\(u\), \(v\), \(c\)), and sudden jumps in the pressure field make it more challenging for 
+                        neural operators to learn effectively.
+                    </p>
+
+
                                         
-                    <ol style="text-align: justify;">
+                    <!-- <ol style="text-align: justify;">
                         <li style="margin-bottom: 25px;">
                             <strong>UNet:</strong>
                             
@@ -1204,10 +1190,10 @@
                                 </li>
                             </ul>
                         </li>
-                    </ol>
+                    </ol> -->
                     
 
-                    <table class="table table-bordered table-sm" style="width:85%;margin:auto; text-align:center;">
+                    <table class="table table-bordered table-sm" style="width:80%;margin:auto; text-align:center;">
                         <thead style="border-bottom: 2px solid black;">
                             <tr>
                                 <th rowspan="2" style="vertical-align:middle;">Model</th>
@@ -1217,224 +1203,206 @@
                             </tr>
                             <tr>
                                 <th scope="col">MSE</th>
-                                <th scope="col">Relative \(L_2\) Error</th>
-                                <th scope="col">Relative \(L_\infty\) Error</th>
+                                <th scope="col">\(L_2\) Error</th>
+                                <th scope="col">\(L_\infty\) Error</th>
                                 <th scope="col">MSE</th>
-                                <th scope="col">Relative \(L_2\) Error</th>
-                                <th scope="col">Relative \(L_\infty\) Error</th>
+                                <th scope="col">\(L_2\) Error</th>
+                                <th scope="col">\(L_\infty\) Error</th>
                             </tr>
                         </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowspan="5">UNet</td>
-                                    <td>Full</td>
-                                    <td>2.566E-04  </td>
-                                    <td>4.228E-02 </td>
-                                    <td>7.893E-01 </td>
-
-                                    <td>1.068E-07  </td>
-                                    <td>1.680E-03 </td>
-                                    <td>1.394E-02  </td>
-                                </tr>
-                                <tr>
-                                    <td>\(c\)</td>
-                                    <td>6.499E-04  </td>
-                                    <td>5.794E-02  </td>
-                                    <td>1.097E+00 </td>
-
-                                    <td>1.806E-07 </td>
-                                    <td>1.106E-03  </td>
-                                    <td>1.970E-02 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(u\)</td>
-                                    <td>8.463E-08 </td>
-                                    <td>2.032E+00   </td>
-                                    <td>7.073E+00 </td>
-
-                                    <td>1.061E-07 </td>
-                                    <td>9.286E-01  </td>
-                                    <td>4.132E+00 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(v\)</td>
-                                    <td>4.207E-07  </td>
-                                    <td>1.557E+00  </td>
-                                    <td>4.986E+00  </td>
-
-                                    <td>5.332E-08  </td>
-                                    <td>1.827E-01  </td>
-                                    <td>1.467E+00 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(p\)</td>
-                                    <td>6.991E-08  </td>
-                                    <td>2.402E+02  </td>
-                                    <td>2.072E+03 </td>
-
-                                    <td>1.912E-08  </td>
-                                    <td>5.501E+03  </td>
-                                    <td>2.324E+04 </td>
-                                </tr>
-
-                        
-                                <tr>
-                                    <td rowspan="5">DeepONet</td>
-                                    <td>Full</td>
-                                    <td>1.216E-03 </td>
-                                    <td>1.008E-01  </td>
-                                    <td>9.040E-01  </td>
-
-                                    <td>1.415E-05 </td>
-                                    <td>1.177E-02 </td>
-                                    <td>1.134E-01 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(c\)</td>
-                                    <td>3.063E-03  </td>
-                                    <td>1.407E-01  </td>
-                                    <td>1.382E+00 </td>
-
-                                    <td>3.484E-05 </td>
-                                    <td>9.569E-03  </td>
-                                    <td>1.972E-01 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(u\)</td>
-                                    <td>8.260E-07  </td>
-                                    <td>9.846E+00  </td>
-                                    <td>1.265E+01  </td>
-
-                                    <td>2.020E-08  </td>
-                                    <td>4.321E-01 </td>
-                                    <td>8.025E-01 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(v\)</td>
-                                    <td>8.505E-07  </td>
-                                    <td>3.410E+00 </td>
-                                    <td>5.359E+00 </td>
-
-                                    <td>3.316E-08 </td>
-                                    <td>1.358E-01</td>
-                                    <td>6.005E-01  </td>
-                                </tr>
-                                <tr>
-                                    <td>\(p\)</td>
-                                    <td>8.951E-07  </td>
-                                    <td>8.528E+02  </td>
-                                    <td>1.645E+03 </td>
-
-                                    <td>3.592E-09 </td>
-                                    <td>2.277E+03</td>
-                                    <td>5.583E+03 </td>
-                                </tr>
-
-                                <tr>
-                                    <td rowspan="5">FNO</td>
-                                    <td>Full</td>
-                                    <td>2.740E-04  </td>
-                                    <td>4.717E-02  </td>
-                                    <td>7.177E-01 </td>
-
-                                    <td>1.360E-07 </td>
-                                    <td>1.876E-03</td>
-                                    <td>8.816E-03  </td>
-                                </tr>
-                                <tr>
-                                    <td>\(c\)</td>
-                                    <td>6.619E-04 </td>
-                                    <td>6.780E-02 </td>
-                                    <td>1.087E+00  </td>
-
-                                    <td>2.591E-07 </td>
-                                    <td>1.349E-03  </td>
-                                    <td>1.391E-02 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(u\)</td>
-                                    <td>3.546E-06</td>
-                                    <td>1.971E+01 </td>
-                                    <td>1.837E+01</td>
-
-                                    <td>6.049E-08 </td>
-                                    <td>7.221E-01  </td>
-                                    <td>1.340E+00 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(v\)</td>
-                                    <td>2.236E-06  </td>
-                                    <td>3.711E+00 </td>
-                                    <td>4.881E+00 </td>
-
-                                    <td>1.075E-07  </td>
-                                    <td>2.338E-01</td>
-                                    <td>9.040E-01</td>
-                                </tr>
-                                <tr>
-                                    <td>\(p\)</td>
-                                    <td>2.464E-06 </td>
-                                    <td>1.313E+03 </td>
-                                    <td>2.116E+03 </td>
-
-                                    <td>2.122E-08 </td>
-                                    <td>5.563E+03 </td>
-                                    <td>7.248E+03 </td>
-                                </tr>
-
-                                <tr>
-                                    <td rowspan="5">CNO</td>
-                                    <td>Full</td>
-                                    <td>8.503E-05 </td>
-                                    <td>2.069E-02  </td>
-                                    <td>5.046E-01 </td>
-
-                                    <td>8.305E-07 </td>
-                                    <td>4.303E-03 </td>
-                                    <td>2.426E-02</td>
-                                </tr>
-                                <tr>
-                                    <td>\(c\)</td>
-                                    <td>2.157E-04  </td>
-                                    <td>2.890E-02</td>
-                                    <td>6.412E-01 </td>
-
-                                    <td>1.593E-06    </td>
-                                    <td>3.023E-03 </td>
-                                    <td>3.998E-02 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(u\)</td>
-                                    <td>1.508E-07  </td>
-                                    <td>2.804E+00</td>
-                                    <td>5.520E+00  </td>
-
-                                    <td>1.499E-07 </td>
-                                    <td>1.109E+00 </td>
-                                    <td>3.103E+00 </td>
-                                </tr>
-                                <tr>
-                                    <td>\(v\)</td>
-                                    <td>2.424E-07 </td>
-                                    <td>1.043E+00 </td>
-                                    <td>2.725E+00</td>
-
-                                    <td>3.452E-07</td>
-                                    <td>4.633E-01</td>
-                                    <td>1.623E+00</td>
-                                </tr>
-                                <tr>
-                                    <td>\(p\)</td>
-                                    <td>9.644E-08 </td>
-                                    <td>2.864E+02 </td>
-                                    <td>7.812E+02 </td>
-
-                                    <td>3.588E-08 </td>
-                                    <td>7.606E+03</td>
-                                    <td>2.718E+04 </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <tbody>
+                            <tr>
+                                <td rowspan="5">UNet</td>
+                                <td>Full</td>
+                                <td>2.57 × 10<sup>-4</sup></td>
+                                <td>4.23 × 10<sup>-2</sup></td>
+                                <td>7.89 × 10<sup>-1</sup></td>
+                                <td>1.07 × 10<sup>-7</sup></td>
+                                <td>1.68 × 10<sup>-3</sup></td>
+                                <td>1.39 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(c\)</td>
+                                <td>6.50 × 10<sup>-4</sup></td>
+                                <td>5.79 × 10<sup>-2</sup></td>
+                                <td>1.10 × 10<sup>0</sup></td>
+                                <td>1.81 × 10<sup>-7</sup></td>
+                                <td>1.11 × 10<sup>-3</sup></td>
+                                <td>1.97 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>8.46 × 10<sup>-8</sup></td>
+                                <td>2.03 × 10<sup>0</sup></td>
+                                <td>7.07 × 10<sup>0</sup></td>
+                                <td>1.06 × 10<sup>-7</sup></td>
+                                <td>9.29 × 10<sup>-1</sup></td>
+                                <td>4.13 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>4.21 × 10<sup>-7</sup></td>
+                                <td>1.56 × 10<sup>0</sup></td>
+                                <td>4.99 × 10<sup>0</sup></td>
+                                <td>5.33 × 10<sup>-8</sup></td>
+                                <td>1.83 × 10<sup>-1</sup></td>
+                                <td>1.47 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>6.99 × 10<sup>-8</sup></td>
+                                <td>2.40 × 10<sup>2</sup></td>
+                                <td>2.07 × 10<sup>3</sup></td>
+                                <td>1.91 × 10<sup>-8</sup></td>
+                                <td>5.50 × 10<sup>3</sup></td>
+                                <td>2.32 × 10<sup>4</sup></td>
+                            </tr>
+                            
+                            <tr>
+                                <td rowspan="5">DeepONet</td>
+                                <td>Full</td>
+                                <td>1.22 × 10<sup>-3</sup></td>
+                                <td>1.01 × 10<sup>-1</sup></td>
+                                <td>9.04 × 10<sup>-1</sup></td>
+                                <td>1.42 × 10<sup>-5</sup></td>
+                                <td>1.18 × 10<sup>-2</sup></td>
+                                <td>1.13 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(c\)</td>
+                                <td>3.06 × 10<sup>-3</sup></td>
+                                <td>1.41 × 10<sup>-1</sup></td>
+                                <td>1.38 × 10<sup>0</sup></td>
+                                <td>3.48 × 10<sup>-5</sup></td>
+                                <td>9.57 × 10<sup>-3</sup></td>
+                                <td>1.97 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>8.26 × 10<sup>-7</sup></td>
+                                <td>9.85 × 10<sup>0</sup></td>
+                                <td>1.27 × 10<sup>1</sup></td>
+                                <td>2.02 × 10<sup>-8</sup></td>
+                                <td>4.32 × 10<sup>-1</sup></td>
+                                <td>8.03 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>8.51 × 10<sup>-7</sup></td>
+                                <td>3.41 × 10<sup>0</sup></td>
+                                <td>5.36 × 10<sup>0</sup></td>
+                                <td>3.32 × 10<sup>-8</sup></td>
+                                <td>1.36 × 10<sup>-1</sup></td>
+                                <td>6.01 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>8.95 × 10<sup>-7</sup></td>
+                                <td>8.53 × 10<sup>2</sup></td>
+                                <td>1.65 × 10<sup>3</sup></td>
+                                <td>3.59 × 10<sup>-9</sup></td>
+                                <td>2.28 × 10<sup>3</sup></td>
+                                <td>5.58 × 10<sup>3</sup></td>
+                            </tr>
+                    
+                            <tr>
+                                <td rowspan="5">FNO</td>
+                                <td>Full</td>
+                                <td>2.74 × 10<sup>-4</sup></td>
+                                <td>4.72 × 10<sup>-2</sup></td>
+                                <td>7.18 × 10<sup>-1</sup></td>
+                                <td>1.36 × 10<sup>-7</sup></td>
+                                <td>1.88 × 10<sup>-3</sup></td>
+                                <td>8.82 × 10<sup>-3</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(c\)</td>
+                                <td>6.62 × 10<sup>-4</sup></td>
+                                <td>6.78 × 10<sup>-2</sup></td>
+                                <td>1.09 × 10<sup>0</sup></td>
+                                <td>2.59 × 10<sup>-7</sup></td>
+                                <td>1.35 × 10<sup>-3</sup></td>
+                                <td>1.39 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>3.55 × 10<sup>-6</sup></td>
+                                <td>1.97 × 10<sup>1</sup></td>
+                                <td>1.84 × 10<sup>1</sup></td>
+                                <td>6.05 × 10<sup>-8</sup></td>
+                                <td>7.22 × 10<sup>-1</sup></td>
+                                <td>1.34 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>2.24 × 10<sup>-6</sup></td>
+                                <td>3.71 × 10<sup>0</sup></td>
+                                <td>4.88 × 10<sup>0</sup></td>
+                                <td>1.08 × 10<sup>-7</sup></td>
+                                <td>2.34 × 10<sup>-1</sup></td>
+                                <td>9.04 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>2.46 × 10<sup>-6</sup></td>
+                                <td>1.31 × 10<sup>3</sup></td>
+                                <td>2.12 × 10<sup>3</sup></td>
+                                <td>2.12 × 10<sup>-8</sup></td>
+                                <td>5.56 × 10<sup>3</sup></td>
+                                <td>7.25 × 10<sup>3</sup></td>
+                            </tr>
+                    
+                            <tr>
+                                <td rowspan="5">CNO</td>
+                                <td>Full</td>
+                                <td>8.50 × 10<sup>-5</sup></td>
+                                <td>2.07 × 10<sup>-2</sup></td>
+                                <td>5.05 × 10<sup>-1</sup></td>
+                                <td>8.31 × 10<sup>-7</sup></td>
+                                <td>4.30 × 10<sup>-3</sup></td>
+                                <td>2.43 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(c\)</td>
+                                <td>2.16 × 10<sup>-4</sup></td>
+                                <td>2.89 × 10<sup>-2</sup></td>
+                                <td>6.41 × 10<sup>-1</sup></td>
+                                <td>1.59 × 10<sup>-6</sup></td>
+                                <td>3.02 × 10<sup>-3</sup></td>
+                                <td>4.00 × 10<sup>-2</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>1.51 × 10<sup>-7</sup></td>
+                                <td>2.80 × 10<sup>0</sup></td>
+                                <td>5.52 × 10<sup>0</sup></td>
+                                <td>1.50 × 10<sup>-7</sup></td>
+                                <td>1.11 × 10<sup>0</sup></td>
+                                <td>3.10 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>2.42 × 10<sup>-7</sup></td>
+                                <td>1.04 × 10<sup>0</sup></td>
+                                <td>2.73 × 10<sup>0</sup></td>
+                                <td>3.45 × 10<sup>-7</sup></td>
+                                <td>4.63 × 10<sup>-1</sup></td>
+                                <td>1.62 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>9.64 × 10<sup>-8</sup></td>
+                                <td>2.86 × 10<sup>2</sup></td>
+                                <td>7.81 × 10<sup>2</sup></td>
+                                <td>3.59 × 10<sup>-8</sup></td>
+                                <td>7.61 × 10<sup>3</sup></td>
+                                <td>2.72 × 10<sup>4</sup></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    
+                    
 
 
                         <div class="text-center">
@@ -1444,7 +1412,33 @@
             </div>
 
 
+            <div class="tab-pane fade" id="p23">
+                <div class="row" style="border:none">
+                    <div class="container" style="padding-top: 20px">
     
+                        <p class="text-justify">
+                            All models were trained on a single A100 80GB GPU, batch size of 4, Adam optimizer with learning rate of 10^−3, and run for 400 epochs. The shown validation loss for CNO sequence to field prediction on the bubble
+                             dataset seems to saturate after 300 epochs. Similar behavior is demonstrated by the other networks.
+                        </p>
+                        
+
+                            <!-- Insert the image in the middle -->
+                            <div style="text-align: center; margin:20px 0;">
+                                <img src="assets\loss_plot.png" alt="Description of Image" style="max-width: 80%; height: auto;">
+                                <br/>
+                                <br/>
+                                <p style="font-style: italic;"><b>Figure:</b> Validation Loss Curve: This plot illustrates the decline in validation loss over the 
+                                    course of training epochs, indicating the model's performance and improvement during the training process.</p> <!-- Visible description below the image -->
+                            </div>
+
+    
+                            <div class="text-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
 
     </div>
 </div>
@@ -1777,29 +1771,29 @@
 
 
     </div> -->
-    <br/>
-    <br/>
-    <br/>
+
     <div class="container" style="padding-top:100px; margin-top:-100px;">
         <h3 id="download" style="padding-top:100px; margin-top:-100px;">Download</h3>
 
-        <br/>
-        <br/>
+
         <div class="container text-center ">
-            <!-- <a href="https://datasets.liris.cnrs.fr/eagle-version1" class="link-primary">DOWNLOAD</a> -->
+            <a href="https://huggingface.co/datasets/BGLab/mpf-bench/tree/main" class="link-primary">DOWNLOAD</a>
         </div>
         <br/>
         <br/>
     </div>
 
-    <!-- <div class="container" style="padding-top:100px; margin-top:-100px;">
-        <h3 id="cite" style="padding-top:100px; margin-top:-100px;">Citation & Contact</h3>
+
+    <hr/>
+
+    <div class="container" style="padding-top:100px; margin-top:-100px;">
+        <h3 id="cite" style="padding-top:100px; margin-top:-100px;">Contact</h3>
         Do not hesitate to contact us for any questions about our project at this address : <a
-            href="mailto: mail_address">steeven.janny@insa-lyon.fr</a>
+            href="mailto: mail_address">baskarg@iastate.edu</a>
         <br/>
         <br/>
         <div class="container border bg-light">
-    <pre>
+    <!-- <pre>
 
     @inproceedings{janny2023eagle,
         title = "EAGLE: Large-scale Learning of Turbulent Fluid Dynamics with Mesh Transformers",
@@ -1808,9 +1802,9 @@
                   Madiha Nadri and Julie Digne and Nicolas Thome and Christian Wolf},
         booktitle = "International Conference on Learning Representations (ICLR)",
         year = "2023"}
-    </pre>
+    </pre> -->
         </div>
-    </div> -->
+    </div>
 
     <br/>
     <br/>
