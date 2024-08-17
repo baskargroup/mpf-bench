@@ -69,9 +69,9 @@
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
                 <li class="nav-item"><a class="nav-link" href="#benchmark">Benchmark</a></li>
-                <li class="nav-item"><a class="nav-link" href="#model">Model</a></li>
-                <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
-                <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+                <li class="nav-item"><a class="nav-link" href="#model">Neural Operators</a></li>
+                <li class="nav-item"><a class="nav-link" href="#results">Experimental Results</a></li>
+                <li class="nav-item"><a class="nav-link" href="#download">Dataset Download</a></li>
             </ul>
         </div>
     </div>
@@ -170,7 +170,7 @@
     <div class="row">
         <div class="col-sm"></div>
         <div class="item col-sm-3">
-            <a href="test" class="link-primary text-dark">
+            <a href="assets/MultiphaseBench_Dataset_NeurIPS_2024.pdf" class="link-primary text-dark">
                 <img src="assets/paper.png" width="15%"/>
                 <b>Paper</b></a>
         </div>
@@ -398,8 +398,8 @@
                             We provide a comprehensive table to help users select the most suitable cases for training and evaluating their models. Our dataset includes variations in key parameters, 
                             such as the Reynolds number (Re), Rho Ratio, Viscosity Ratio, and Bond Number (Bo). The Rho Ratio ranges from 10 to 1000, Viscosity Ratio varies between 1 and 100, and the Bo number 
                             spans from 10 to 500. Notably, the Reynolds number in bubble simulations varies from 10 to 500, while in drop simulations, it extends from 10 to 1000. Due to the inherent fluid properties, 
-                            the Viscosity Ratio is proportional to the Density Ratio, meaning that both are typically either high or low together. To aid in model development, we’ve created a normalized difficulty 
-                            scale based on the complexity of capturing interface deformations. This relative difficulty rating guides users in selecting cases, with most scenarios following this established pattern.
+                            the Viscosity Ratio is proportional to the Density Ratio, meaning that both are typically either high or low together. To support model development, we have introduced a normalized difficulty 
+                            classification that reflects the complexity of capturing interface deformations. This relative difficulty rating guides users in selecting cases, with most scenarios following this established pattern.
                         </p>
                         <br/>
                         <br/>
@@ -421,56 +421,56 @@
                                         <td>High</td>
                                         <td>High</td>
                                         <td>High</td>
-                                        <td>8/10</td>
+                                        <td>Challenging</td>
                                     </tr>
                                     <tr>
                                         <td>High</td>
                                         <td>High</td>
                                         <td>Low</td>
                                         <td>Low</td>
-                                        <td>3/10</td>
+                                        <td>Easy</td>
                                     </tr>
                                     <tr>
                                         <td>High</td>
                                         <td>High</td>
                                         <td>High</td>
                                         <td>Low</td>
-                                        <td>5/10</td>
+                                        <td>Moderate</td>
                                     </tr>
                                     <tr>
                                         <td>High</td>
                                         <td>High</td>
                                         <td>Low</td>
                                         <td>High</td>
-                                        <td>7/10</td>
+                                        <td>Moderate</td>
                                     </tr>
                                     <tr>
                                         <td>Low</td>
                                         <td>Low</td>
                                         <td>High</td>
                                         <td>High</td>
-                                        <td>10/10</td>
+                                        <td>Challenging</td>
                                     </tr>
                                     <tr>
                                         <td>Low</td>
                                         <td>Low</td>
                                         <td>Low</td>
                                         <td>Low</td>
-                                        <td>3/10</td>
+                                        <td>Easy</td>
                                     </tr>
                                     <tr>
                                         <td>Low</td>
                                         <td>Low</td>
                                         <td>High</td>
                                         <td>Low</td>
-                                        <td>2/10</td>
+                                        <td>Easy</td>
                                     </tr>
                                     <tr>
                                         <td>Low</td>
                                         <td>Low</td>
                                         <td>Low</td>
                                         <td>High</td>
-                                        <td>7/10</td>
+                                        <td>Moderate</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -650,7 +650,7 @@
 
 
 <div class="container">
-    <h3 id="model" style="padding-top:100px; margin-top:-100px;text-align: center">Benchmark Models</h3>
+    <h3 id="model" style="padding-top:100px; margin-top:-100px;text-align: center">Neural Operators</h3>
     <div class="text-dark text-justify">
         In recent years, deep learning has revolutionized the field of scientific computing, particularly in solving complex partial differential 
         equations (PDEs) and modeling multiphase flows. Several neural network architectures have been proposed, each leveraging different mathematical 
@@ -781,7 +781,7 @@
 
 
 <div class="container">
-    <h3 id="results" style="padding-top:100px; margin-top:-100px;text-align: center">Results</h3>
+    <h3 id="results" style="padding-top:100px; margin-top:-100px;text-align: center">Experimental Results</h3>
     <div class="text-dark text-justify">
         In this section, we present the results of applying various neural operator models to four different scenarios within our dataset.
          These scenarios include sequence-to-field predictions and sequence-to-sequence predictions for both the droplet and bubble datasets. 
@@ -1773,7 +1773,7 @@
     </div> -->
 
     <div class="container" style="padding-top:100px; margin-top:-100px;">
-        <h3 id="download" style="padding-top:100px; margin-top:-100px;">Download</h3>
+        <h3 id="download" style="padding-top:100px; margin-top:-100px;">Dataset Download</h3>
 
 
         <div class="container text-center ">
