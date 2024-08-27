@@ -806,14 +806,66 @@
     <div class="tab-content">
         <div class="tab-pane fade show active" id="p21">
             <div class="row" style="border:none">
-                <div class="container" style="padding-top: 20px">                   
+                <div class="container" style="padding-top: 20px">  
                     
                     
                     <p class="text-justify">
-                        The table below presents the results of our sequence-to-field predictions for both the bubble and drop datasets, evaluated across four different models: UNet, DeepONet, 
+                        This section presents the results of our sequence-to-field predictions for both the bubble and drop datasets, evaluated across four different models: UNet, DeepONet, 
                         Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this setup, the models were trained on a sequence of input time steps 
                     [0, 5, 10, 15, 20] and were tasked with predicting the state of the system at time step [25]. This approach is crucial for understanding how well each model can capture and predict the evolution of the system over time, based on a given history.
                     </p>
+                    
+                    
+                    <p class="text-justify">
+                        The figure shows the sequence-to-field predictions for the interface field 𝐶
+                        using four different models: UNet, DeepONet, Fourier Neural Operator (FNO), and Convolutional Neural Operator 
+                        (CNO). The columns represent the true interface field 𝐶 , the predicted interface field, and the error between 
+                        the prediction and the ground truth. This comparison highlights how each model performs in capturing the interface
+                         dynamics of a fluid system at a specific time step, given a sequence of prior states. UNet, FNO, and CNO exhibit 
+                         relatively low prediction errors, suggesting their robustness in predicting the interface field. In contrast, DeepONet 
+                         shows larger errors, particularly in regions of complex deformation, indicating that it may struggle more with 
+                         capturing intricate interface details. This visual analysis underscores the strengths and limitations of each model 
+                         in accurately predicting the evolution of the interface field over time.
+                    </p>
+
+
+                    <table style="margin:auto;text-align: center">
+                        <!-- First Row -->
+                        <tr>
+                            <td><b>UNet</b></td>
+                            <td><b>DeepONet</b></td>
+                        </tr>
+                        <tr>
+                            <td width="49%">
+                                <img src="assets/images/vec_unet.png" style="width: 100%">
+                            </td>
+                            <td width="49%">
+                                <img src="assets/images/vec_deeponet.png" style="width: 100%">
+                            </td>
+                        </tr>
+                        <!-- Spacer Row -->
+                        <tr>
+                            <td colspan="2" style="height: 20px;"></td>
+                        </tr>
+                        <!-- Second Row -->
+                        <tr>
+                            <td><b>FNO</b></td>
+                            <td><b>CNO</b></td>
+                        </tr>
+                        <tr>
+                            <td width="49%">
+                                <img src="assets/images/vec_fno.png" style="width: 100%">
+                            </td>
+                            <td width="49%">
+                                <img src="assets/images/vec_cno.png" style="width: 100%">
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br/>
+                    <br/>
+                    
+                
 
                     <p class="text-justify">
                         CNO appears to perform better than the other three networks across all metrics (MSE, \(L_2\), \(L_\infty\)). However, all models' performances are within the same order of magnitude. The higher \(L_2\) 
@@ -1118,18 +1170,7 @@
             <div class="row" style="border:none">
                 <div class="container" style="padding-top: 20px">
 
-                    <p class="text-justify">
-                        The table below displays the outcomes of our sequence-to-sequence predictions for both the bubble and drop datasets, assessed across four different models: UNet, DeepONet, 
-                        Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this experiment, the models were trained on a sequence of input time steps 
-                        [0, 5, 10, 15, 20] and tasked with predicting the system's state over the subsequent time steps [25, 26, 27, 28, 29]. This approach is critical for evaluating how well each model can 
-                        forecast the system's progression over a sequence of time, based on the given historical data.
-                    </p>
-    
-                    <p class="text-justify">
-                        CNO appears to perform better than the other three networks across all metrics (MSE, \(L_2\), \(L_\infty\)). However, all models' performances are within the same order of magnitude. The higher \(L_2\) 
-                        and Linifinty errors for pressure, \(p\), are likely due to its lower smoothness compared to other fields (\(u\), \(v\), \(c\)), and sudden jumps in the pressure field make it more challenging for 
-                        neural operators to learn effectively.
-                    </p>
+
 
 
                                         
@@ -1193,6 +1234,23 @@
                     </ol> -->
 
 
+                    <p class="text-justify">
+                        This section displays the outcomes of our sequence-to-sequence predictions for both the bubble and drop datasets, assessed across four different models: UNet, DeepONet, 
+                        Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this experiment, the models were trained on a sequence of input time steps 
+                        [0, 5, 10, 15, 20] and tasked with predicting the system's state over the subsequent time steps [25, 26, 27, 28, 29]. This approach is critical for evaluating how well each model can 
+                        forecast the system's progression over a sequence of time, based on the given historical data.
+                    </p>
+
+                    <p class="text-justify">
+                    The figure illustrates the sequence-to-sequence predictions for the interface field 𝐶
+ across four different models: UNet, DeepONet, Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). The columns in the figure represent the ground truth interface field  𝐶
+, the predicted interface field, and the corresponding error between the prediction and the ground truth. Each model's 
+ability to capture the dynamics of the flow and accurately predict the interface distribution is visually compared here. Notably, 
+while UNet, FNO, and CNO exhibit relatively low prediction errors, DeepONet shows significant discrepancies, particularly in regions of 
+complex flow, as indicated by the larger error fields. This visual comparison highlights the strengths and weaknesses of each model in handling
+ sequence-to-sequence predictions, particularly in capturing intricate flow structures and minimizing prediction errors over time.
+</p>
+
                     <table style="margin:auto;text-align: center">
                         <!-- First Row -->
                         <tr>
@@ -1201,10 +1259,10 @@
                         </tr>
                         <tr>
                             <td width="49%">
-                                <img id="gif1" src="assets/gifs/seq_unet.gif" style="width: 100%">
+                                <img class="preload" src="assets/gifs/seq_unet.gif" style="width: 100%">
                             </td>
                             <td width="49%">
-                                <img id="gif2" src="assets/gifs/seq_deeponet.gif" style="width: 100%">
+                                <img class="preload" src="assets/gifs/seq_deeponet.gif" style="width: 100%">
                             </td>
                         </tr>
                         <!-- Spacer Row -->
@@ -1218,33 +1276,39 @@
                         </tr>
                         <tr>
                             <td width="49%">
-                                <img id="gif3" src="assets/gifs/seq_fno.gif" style="width: 100%">
+                                <img class="preload" src="assets/gifs/seq_fno.gif" style="width: 100%">
                             </td>
                             <td width="49%">
-                                <img id="gif4" src="assets/gifs/seq_cno.gif" style="width: 100%">
+                                <img class="preload" src="assets/gifs/seq_cno.gif" style="width: 100%">
                             </td>
                         </tr>
                     </table>
                     
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                     <script>
-                        window.onload = function() {
-                            var gifs = ["gif1", "gif2", "gif3", "gif4"];
-                            gifs.forEach(function(id) {
-                                var gif = document.getElementById(id);
-                                var src = gif.src;
-                                gif.src = ""; // Temporarily set to empty to reset the GIF
-                                gif.src = src; // Reload the GIF
+                        $(window).on('load', function() {
+                            $('.preload').attr('src', function(i, a) {
+                                $(this).attr('src', '').removeClass('preload').attr('src', a);
                             });
-                        };
+                        });
                     </script>
                     
+                    <br/>
+                    <br/>
                     
+
+    
+                    <p class="text-justify">
+                        CNO appears to perform better than the other three networks across all metrics (MSE, \(L_2\), \(L_\infty\)). However, all models' performances are within the same order of magnitude. The higher \(L_2\) 
+                        and Linifinty errors for pressure, \(p\), are likely due to its lower smoothness compared to other fields (\(u\), \(v\), \(c\)), and sudden jumps in the pressure field make it more challenging for 
+                        neural operators to learn effectively.
+                    </p>
                     
                     
 
                     <table class="table table-bordered table-sm" style="width:80%;margin:auto; text-align:center;">
                         <thead style="border-bottom: 2px solid black;">
-                            <caption style="caption-side: top; font-weight: bold;">Your Caption Here</caption>
+                            <!-- <caption style="caption-side: top; font-weight: bold;">Your Caption Here</caption> -->
                             <tr>
                                 <th rowspan="2" style="vertical-align:middle;">Model</th>
                                 <th rowspan="2" style="vertical-align:middle;">Channel</th>
