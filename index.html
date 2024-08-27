@@ -1191,10 +1191,60 @@
                             </ul>
                         </li>
                     </ol> -->
+
+
+                    <table style="margin:auto;text-align: center">
+                        <!-- First Row -->
+                        <tr>
+                            <td><b>UNet</b></td>
+                            <td><b>DeepONet</b></td>
+                        </tr>
+                        <tr>
+                            <td width="49%">
+                                <img id="gif1" src="assets/gifs/seq_unet.gif" style="width: 100%">
+                            </td>
+                            <td width="49%">
+                                <img id="gif2" src="assets/gifs/seq_deeponet.gif" style="width: 100%">
+                            </td>
+                        </tr>
+                        <!-- Spacer Row -->
+                        <tr>
+                            <td colspan="2" style="height: 20px;"></td>
+                        </tr>
+                        <!-- Second Row -->
+                        <tr>
+                            <td><b>FNO</b></td>
+                            <td><b>CNO</b></td>
+                        </tr>
+                        <tr>
+                            <td width="49%">
+                                <img id="gif3" src="assets/gifs/seq_fno.gif" style="width: 100%">
+                            </td>
+                            <td width="49%">
+                                <img id="gif4" src="assets/gifs/seq_cno.gif" style="width: 100%">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <script>
+                        window.onload = function() {
+                            var gifs = ["gif1", "gif2", "gif3", "gif4"];
+                            gifs.forEach(function(id) {
+                                var gif = document.getElementById(id);
+                                var src = gif.src;
+                                gif.src = ""; // Temporarily set to empty to reset the GIF
+                                gif.src = src; // Reload the GIF
+                            });
+                        };
+                    </script>
+                    
+                    
+                    
                     
 
                     <table class="table table-bordered table-sm" style="width:80%;margin:auto; text-align:center;">
                         <thead style="border-bottom: 2px solid black;">
+                            <caption style="caption-side: top; font-weight: bold;">Your Caption Here</caption>
                             <tr>
                                 <th rowspan="2" style="vertical-align:middle;">Model</th>
                                 <th rowspan="2" style="vertical-align:middle;">Channel</th>
