@@ -829,42 +829,18 @@
                     </p>
 
 
-                    <table style="margin:auto;text-align: center">
-                        <!-- First Row -->
-                        <tr>
-                            <td><b>UNet</b></td>
-                            <td><b>DeepONet</b></td>
-                        </tr>
-                        <tr>
-                            <td width="49%">
-                                <img src="assets/images/vec_unet.png" style="width: 100%">
-                            </td>
-                            <td width="49%">
-                                <img src="assets/images/vec_deeponet.png" style="width: 100%">
-                            </td>
-                        </tr>
-                        <!-- Spacer Row -->
-                        <tr>
-                            <td colspan="2" style="height: 20px;"></td>
-                        </tr>
-                        <!-- Second Row -->
-                        <tr>
-                            <td><b>FNO</b></td>
-                            <td><b>CNO</b></td>
-                        </tr>
-                        <tr>
-                            <td width="49%">
-                                <img src="assets/images/vec_fno.png" style="width: 100%">
-                            </td>
-                            <td width="49%">
-                                <img src="assets/images/vec_cno.png" style="width: 100%">
-                            </td>
-                        </tr>
-                    </table>
 
-                    <br/>
-                    <br/>
                     
+                        <!-- Insert the image in the middle -->
+                        <div style="text-align: center; margin: 20px 0;">
+                            <img src="assets\figures\f1.png" alt="Description of Image" style="max-width: 100%; height: auto;">
+                            <br/>
+                            <br/>
+                            <p style="font-style: italic;"><b>Figure:</b> Visualization of four different cases from the 3D bubble dataset, illustrating the impact of varying Reynolds
+                                 (Re) and Bond (Bo) numbers on bubble deformation. As Re and Bo numbers increase, the bubble exhibits more complex and challenging dynamics, 
+                                 demonstrating the varying levels of difficulty in predicting bubble behavior across different flow regimes.</p> <!-- Visible description below the image -->
+                        </div>
+
                 
 
                     <p class="text-justify">
@@ -872,284 +848,265 @@
                         and Linifinty errors for pressure, \(p\), are likely due to its lower smoothness compared to other fields (\(u\), \(v\), \(c\)), and sudden jumps in the pressure field make it more challenging for 
                         neural operators to learn effectively.
                     </p>
-<!--                     
-                    <ol style="text-align: justify;">
-                        <li style="margin-bottom: 25px;">
-                            <strong>UNet:</strong>
-                            
-                            <ul style="text-align: justify;">
-                                <li>
-                                    <strong>Bubble Dataset:</strong> UNet shows relatively low MSE and Relative L<sub>2</sub> Error, 
-                                    indicating that it is quite effective at capturing the overall field dynamics. However, its Relative L<sub>∞</sub> Error is higher, especially for the <i>v</i> and <i>p</i> channels, suggesting that UNet might struggle with capturing the extreme values or sharp features within these fields.
-                                </li>
-                                <li>
-                                    <strong>Drop Dataset:</strong> UNet performs exceptionally well with the lowest MSE and Relative L<sub>2</sub> 
-                                    Error among all models for most channels, indicating strong overall accuracy. However, the Relative L<sub>∞</sub> Error, while lower than in the bubble dataset, 
-                                    still suggests some difficulty in capturing the most extreme cases.
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li style="margin-bottom: 25px;">
-                            <strong>DeepONet:</strong>
-                            <ul style="text-align: justify;">
-                                <li>
-                                    <strong>Bubble Dataset:</strong> DeepONet exhibits the highest errors across all metrics compared to the other models. 
-                                    This suggests that DeepONet may not be as well-suited for this particular sequence-to-field task, particularly when dealing 
-                                    with complex, three-dimensional flows like those in the bubble dataset.
-                                </li>
-                                <li>
-                                    <strong>Drop Dataset:</strong> Although it shows improvement over its performance on the bubble dataset, 
-                                    DeepONet still generally lags behind the other models, especially in the Relative L<sub>∞</sub> Error, indicating 
-                                    potential difficulties in accurately capturing the flow dynamics at extreme values.
-                                </li>
-                            </ul>
-                        </li>
-                        <li style="margin-bottom: 25px;">
-                            <strong>FNO:</strong>
-                            <ul style="text-align: justify;">
-                                <li>
-                                    <strong>Bubble Dataset:</strong> FNO performs relatively well, with MSE and Relative L<sub>2</sub> Error close to
-                                     those of UNet. However, it shows higher Relative L<sub>∞</sub> Error, particularly in the <i>v</i> and <i>p</i> channels, 
-                                     indicating some challenges in handling the most complex flow structures.
-                                </li>
-                                <li>
-                                    <strong>Drop Dataset:</strong> FNO demonstrates strong performance with competitive MSE and Relative L<sub>2</sub> Error,
-                                     making it a robust choice for sequence-to-field predictions in this context. Nevertheless, like UNet, its Relative
-                                      L<sub>∞</sub> Error suggests some limitations in capturing peak dynamics.
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li style="margin-bottom: 25px;">
-                            <strong>CNO:</strong>
-                            <ul style="text-align: justify;">
-                                <li>
-                                    <strong>Bubble Dataset:</strong> CNO exhibits a balanced performance, with lower MSE compared to DeepONet but higher than UNet 
-                                    and FNO. Its Relative L<sub>2</sub> Error is somewhat elevated, but it performs better in Relative L<sub>∞</sub> Error, 
-                                    particularly for the <i>v</i> and <i>p</i> channels, indicating improved handling of extreme cases.
-                                </li>
-                                <li>
-                                    <strong>Drop Dataset:</strong> CNO shows competitive results, with its MSE and Relative L<sub>2</sub> Error being 
-                                    slightly higher than UNet but still within a reasonable range. Its Relative L<sub>∞</sub> Error is also notably lower 
-                                    than FNO and UNet, suggesting better robustness in predicting extreme values.
-                                </li>
-                            </ul>
-                        </li>
-
-
-                    </ol> -->
 
                     
                     
 
                     
-
                     <table class="table table-bordered table-sm" style="width:80%;margin:auto; text-align:center;">
                         <thead style="border-bottom: 2px solid black;">
                             <tr>
                                 <th rowspan="2" style="vertical-align:middle;">Model</th>
                                 <th rowspan="2" style="vertical-align:middle;">Channel</th>
-                                <th colspan="3" style="border-bottom: none;">Bubble Dataset</th>
-                                <th colspan="3" style="border-bottom: none;">Drop Dataset</th>
+                                <th colspan="2">S1</th>
+                                <th colspan="2">S2</th>
+                                <th colspan="2">S3</th>
                             </tr>
                             <tr>
-                                <th scope="col">MSE</th>
-                                <th scope="col">\(L_2\) Error</th>
-                                <th scope="col">\(L_\infty\) Error</th>
-                                <th scope="col">MSE</th>
-                                <th scope="col">\(L_2\) Error</th>
-                                <th scope="col">\(L_\infty\) Error</th>
+                                <th>MSE</th>
+                                <th>\(L_2\)</th>
+                                <th>MSE</th>
+                                <th>\(L_2\)</th>
+                                <th>MSE</th>
+                                <th>\(L_2\)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td rowspan="5">UNet</td>
-                                <td>Full</td>
-                                <td>2.83 × 10<sup>-4</sup></td>
-                                <td>4.02 × 10<sup>-2</sup></td>
-                                <td>5.94 × 10<sup>-1</sup></td>
-                                <td>6.57 × 10<sup>-8</sup></td>
-                                <td>1.31 × 10<sup>-3</sup></td>
-                                <td>8.91 × 10<sup>-3</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(c\)</td>
-                                <td>7.15 × 10<sup>-4</sup></td>
-                                <td>6.19 × 10<sup>-2</sup></td>
-                                <td>1.19 × 10<sup>0</sup></td>
-                                <td>1.25 × 10<sup>-7</sup></td>
-                                <td>9.15 × 10<sup>-4</sup></td>
-                                <td>1.71 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(u\)</td>
-                                <td>1.11 × 10<sup>-7</sup></td>
-                                <td>1.49 × 10<sup>0</sup></td>
-                                <td>1.07 × 10<sup>1</sup></td>
-                                <td>2.27 × 10<sup>-8</sup></td>
-                                <td>4.58 × 10<sup>-1</sup></td>
-                                <td>1.93 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(v\)</td>
-                                <td>4.55 × 10<sup>-7</sup></td>
-                                <td>5.50 × 10<sup>-1</sup></td>
-                                <td>3.62 × 10<sup>0</sup></td>
-                                <td>3.46 × 10<sup>-8</sup></td>
-                                <td>1.59 × 10<sup>-1</sup></td>
-                                <td>1.45 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(p\)</td>
-                                <td>9.52 × 10<sup>-8</sup></td>
-                                <td>3.19 × 10<sup>2</sup></td>
-                                <td>3.15 × 10<sup>3</sup></td>
-                                <td>1.68 × 10<sup>-8</sup></td>
-                                <td>5.50 × 10<sup>3</sup></td>
-                                <td>3.92 × 10<sup>4</sup></td>
-                            </tr>
-                    
-                            <tr>
-                                <td rowspan="5">DeepONet</td>
-                                <td>Full</td>
-                                <td>1.26 × 10<sup>-3</sup></td>
-                                <td>1.02 × 10<sup>-1</sup></td>
-                                <td>8.40 × 10<sup>-1</sup></td>
-                                <td>1.01 × 10<sup>-5</sup></td>
-                                <td>1.15 × 10<sup>-2</sup></td>
-                                <td>9.89 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(c\)</td>
-                                <td>3.16 × 10<sup>-3</sup></td>
-                                <td>1.57 × 10<sup>-1</sup></td>
-                                <td>1.68 × 10<sup>0</sup></td>
-                                <td>2.45 × 10<sup>-5</sup></td>
-                                <td>9.28 × 10<sup>-3</sup></td>
-                                <td>1.96 × 10<sup>-1</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(u\)</td>
-                                <td>5.70 × 10<sup>-7</sup></td>
-                                <td>3.35 × 10<sup>0</sup></td>
-                                <td>6.23 × 10<sup>0</sup></td>
-                                <td>3.50 × 10<sup>-8</sup></td>
-                                <td>5.93 × 10<sup>-1</sup></td>
-                                <td>9.01 × 10<sup>-1</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(v\)</td>
-                                <td>5.06 × 10<sup>-7</sup></td>
-                                <td>5.67 × 10<sup>-1</sup></td>
-                                <td>2.44 × 10<sup>0</sup></td>
-                                <td>8.82 × 10<sup>-8</sup></td>
-                                <td>2.47 × 10<sup>-1</sup></td>
-                                <td>6.02 × 10<sup>-1</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(p\)</td>
-                                <td>5.66 × 10<sup>-7</sup></td>
-                                <td>7.57 × 10<sup>2</sup></td>
-                                <td>1.74 × 10<sup>3</sup></td>
-                                <td>7.78 × 10<sup>-8</sup></td>
-                                <td>1.18 × 10<sup>4</sup></td>
-                                <td>4.69 × 10<sup>3</sup></td>
-                            </tr>
-                    
-                            <tr>
-                                <td rowspan="5">FNO</td>
-                                <td>Full</td>
-                                <td>2.06 × 10<sup>-4</sup></td>
-                                <td>3.98 × 10<sup>-2</sup></td>
-                                <td>5.81 × 10<sup>-1</sup></td>
-                                <td>1.27 × 10<sup>-6</sup></td>
-                                <td>5.76 × 10<sup>-3</sup></td>
-                                <td>1.94 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(c\)</td>
-                                <td>4.96 × 10<sup>-4</sup></td>
-                                <td>5.97 × 10<sup>-2</sup></td>
-                                <td>1.15 × 10<sup>0</sup></td>
-                                <td>2.88 × 10<sup>-6</sup></td>
-                                <td>4.52 × 10<sup>-3</sup></td>
-                                <td>3.78 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(u\)</td>
-                                <td>3.88 × 10<sup>-6</sup></td>
-                                <td>8.98 × 10<sup>0</sup></td>
-                                <td>1.46 × 10<sup>1</sup></td>
-                                <td>5.70 × 10<sup>-7</sup></td>
-                                <td>2.30 × 10<sup>0</sup></td>
-                                <td>3.27 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(v\)</td>
-                                <td>5.93 × 10<sup>-6</sup></td>
-                                <td>1.99 × 10<sup>0</sup></td>
-                                <td>7.86 × 10<sup>0</sup></td>
-                                <td>1.00 × 10<sup>-6</sup></td>
-                                <td>8.24 × 10<sup>-1</sup></td>
-                                <td>1.59 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(p\)</td>
-                                <td>6.14 × 10<sup>-6</sup></td>
-                                <td>2.56 × 10<sup>3</sup></td>
-                                <td>4.45 × 10<sup>3</sup></td>
-                                <td>5.06 × 10<sup>-7</sup></td>
-                                <td>2.78 × 10<sup>4</sup></td>
-                                <td>2.33 × 10<sup>4</sup></td>
-                            </tr>
-                    
-                            <tr>
-                                <td rowspan="5">CNO</td>
-                                <td>Full</td>
-                                <td>4.85 × 10<sup>-5</sup></td>
-                                <td>1.49 × 10<sup>-2</sup></td>
-                                <td>2.99 × 10<sup>-1</sup></td>
-                                <td>1.86 × 10<sup>-7</sup></td>
-                                <td>2.10 × 10<sup>-3</sup></td>
-                                <td>8.72 × 10<sup>-3</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(c\)</td>
-                                <td>1.23 × 10<sup>-4</sup></td>
-                                <td>2.30 × 10<sup>-2</sup></td>
-                                <td>5.95 × 10<sup>-1</sup></td>
-                                <td>2.53 × 10<sup>-7</sup></td>
-                                <td>1.30 × 10<sup>-3</sup></td>
-                                <td>1.73 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(u\)</td>
-                                <td>1.35 × 10<sup>-7</sup></td>
-                                <td>1.64 × 10<sup>0</sup></td>
-                                <td>8.87 × 10<sup>0</sup></td>
-                                <td>2.56 × 10<sup>-8</sup></td>
-                                <td>4.94 × 10<sup>-1</sup></td>
-                                <td>2.72 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(v\)</td>
-                                <td>1.46 × 10<sup>-7</sup></td>
-                                <td>3.10 × 10<sup>-1</sup></td>
-                                <td>3.78 × 10<sup>0</sup></td>
-                                <td>7.85 × 10<sup>-8</sup></td>
-                                <td>2.30 × 10<sup>-1</sup></td>
-                                <td>1.31 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(p\)</td>
-                                <td>6.70 × 10<sup>-8</sup></td>
-                                <td>2.68 × 10<sup>2</sup></td>
-                                <td>2.16 × 10<sup>3</sup></td>
-                                <td>6.16 × 10<sup>-8</sup></td>
-                                <td>1.05 × 10<sup>4</sup></td>
-                                <td>3.21 × 10<sup>4</sup></td>
-                            </tr>
+        <!-- UNet -->
+        <tr>
+            <td rowspan="4">UNet</td>
+            <td>\(c\)</td>
+            <td><b>2.60 × 10<sup>-2</sup></b></td>
+            <td><b>2.59 × 10<sup>-2</sup></b></td>
+            <td>8.40 × 10<sup>-3</sup></td>
+            <td>8.07 × 10<sup>-3</sup></td>
+            <td>9.56 × 10<sup>-3</sup></td>
+            <td>9.04 × 10<sup>-3</sup></td>
+        </tr>
+        <tr>
+            <td>\(u\)</td>
+            <td>8.80 × 10<sup>-5</sup></td>
+            <td>3.13 × 10<sup>0</sup></td>
+            <td>8.00 × 10<sup>-6</sup></td>
+            <td>2.04 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-5</sup></td>
+            <td>2.09 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(v\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>1.56 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>7.84 × 10<sup>-1</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>8.76 × 10<sup>-1</sup></td>
+        </tr>
+        <tr>
+            <td>\(p\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>2.74 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>3.23 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>5.17 × 10<sup>2</sup></td>
+        </tr>
+
+        <!-- DeepONet -->
+        <tr>
+            <td rowspan="4">DeepONet</td>
+            <td>\(c\)</td>
+            <td>2.66 × 10<sup>-2</sup></td>
+            <td>2.65 × 10<sup>-2</sup></td>
+            <td>1.01 × 10<sup>-1</sup></td>
+            <td>1.01 × 10<sup>-1</sup></td>
+            <td>1.18 × 10<sup>-1</sup></td>
+            <td>1.18 × 10<sup>-1</sup></td>
+        </tr>
+        <tr>
+            <td>\(u\)</td>
+            <td>9.10 × 10<sup>-5</sup></td>
+            <td>6.71 × 10<sup>0</sup></td>
+            <td>1.27 × 10<sup>-3</sup></td>
+            <td>1.24 × 10<sup>0</sup></td>
+            <td>1.71 × 10<sup>-3</sup></td>
+            <td>9.18 × 10<sup>-1</sup></td>
+        </tr>
+        <tr>
+            <td>\(v\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>8.68 × 10<sup>-1</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>5.35 × 10<sup>-1</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>8.89 × 10<sup>-1</sup></td>
+        </tr>
+        <tr>
+            <td>\(p\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>1.89 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>2.43 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>1.66 × 10<sup>2</sup></td>
+        </tr>
+
+
+                      <!-- FNO -->
+        <tr>
+            <td rowspan="4">FNO</td>
+            <td>\(c\)</td>
+            <td>2.72 × 10<sup>-2</sup></td>
+            <td>2.68 × 10<sup>-2</sup></td>
+            <td>9.73 × 10<sup>-3</sup></td>
+            <td>8.97 × 10<sup>-3</sup></td>
+            <td>2.10 × 10<sup>-2</sup></td>
+            <td>1.98 × 10<sup>-2</sup></td>
+        </tr>
+        <tr>
+            <td>\(u\)</td>
+            <td>9.30 × 10<sup>-5</sup></td>
+            <td>8.56 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-5</sup></td>
+            <td>2.77 × 10<sup>0</sup></td>
+            <td>4.80 × 10<sup>-5</sup></td>
+            <td>5.29 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(v\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>3.43 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>1.09 × 10<sup>0</sup></td>
+            <td>2.00 × 10<sup>-6</sup></td>
+            <td>2.02 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(p\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>7.18 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>7.44 × 10<sup>2</sup></td>
+            <td>2.00 × 10<sup>-6</sup></td>
+            <td>1.04 × 10<sup>3</sup></td>
+        </tr>
+
+        <!-- CNO -->
+        <tr>
+            <td rowspan="4">CNO</td>
+            <td>\(c\)</td>
+            <td>2.62 × 10<sup>-2</sup></td>
+            <td>2.60 × 10<sup>-1</sup></td>
+            <td><b>5.89 × 10<sup>-3</sup></b></td>
+            <td><b>5.65 × 10<sup>-3</sup></b></td>
+            <td><b>9.41 × 10<sup>-3</sup></b></td>
+            <td><b>9.00 × 10<sup>-3</sup></b></td>
+        </tr>
+        <tr>
+            <td>\(u\)</td>
+            <td>8.80 × 10<sup>-5</sup></td>
+            <td>5.04 × 10<sup>0</sup></td>
+            <td>4.00 × 10<sup>-6</sup></td>
+            <td>1.60 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-5</sup></td>
+            <td>1.79 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(v\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>1.73 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>5.07 × 10<sup>-1</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>9.19 × 10<sup>-1</sup></td>
+        </tr>
+        <tr>
+            <td>\(p\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>4.46 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>2.24 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>3.96 × 10<sup>2</sup></td>
+        </tr>
+
+
+                      <!-- scOT -->
+        <tr>
+            <td rowspan="4">scOT</td>
+            <td>\(c\)</td>
+            <td>2.76 × 10<sup>-2</sup></td>
+            <td>2.68 × 10<sup>-2</sup></td>
+            <td>1.77 × 10<sup>-2</sup></td>
+            <td>1.68 × 10<sup>-2</sup></td>
+            <td>2.23 × 10<sup>-2</sup></td>
+            <td>2.17 × 10<sup>-2</sup></td>
+        </tr>
+        <tr>
+            <td>\(u\)</td>
+            <td>1.29 × 10<sup>1</sup></td>
+            <td>1.29 × 10<sup>1</sup></td>
+            <td>3.50 × 10<sup>-5</sup></td>
+            <td>3.91 × 10<sup>0</sup></td>
+            <td>5.80 × 10<sup>-5</sup></td>
+            <td>2.82 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(v\)</td>
+            <td>5.24 × 10<sup>0</sup></td>
+            <td>5.24 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>2.31 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>1.75 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(p\)</td>
+            <td>9.65 × 10<sup>2</sup></td>
+            <td>9.65 × 10<sup>2</sup></td>
+            <td>2.00 × 10<sup>-6</sup></td>
+            <td>8.12 × 10<sup>2</sup></td>
+            <td>2.00 × 10<sup>-6</sup></td>
+            <td>7.80 × 10<sup>2</sup></td>
+        </tr>
+
+        <!-- Poseidon -->
+        <tr>
+            <td rowspan="4">Poseidon</td>
+            <td>\(c\)</td>
+            <td>2.87 × 10<sup>-2</sup></td>
+            <td>2.79 × 10<sup>-1</sup></td>
+            <td>3.01 × 10<sup>-2</sup></td>
+            <td>2.49 × 10<sup>-2</sup></td>
+            <td>2.49 × 10<sup>-2</sup></td>
+            <td>2.23 × 10<sup>-2</sup></td>
+        </tr>
+        <tr>
+            <td>\(u\)</td>
+            <td>1.00 × 10<sup>-4</sup></td>
+            <td>1.16 × 10<sup>1</sup></td>
+            <td>1.14 × 10<sup>-4</sup></td>
+            <td>1.31 × 10<sup>1</sup></td>
+            <td>6.10 × 10<sup>-5</sup></td>
+            <td>8.28 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(v\)</td>
+            <td>2.00 × 10<sup>-6</sup></td>
+            <td>5.86 × 10<sup>0</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>4.05 × 10<sup>0</sup></td>
+            <td>5.00 × 10<sup>-6</sup></td>
+            <td>2.83 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(p\)</td>
+            <td>2.00 × 10<sup>-6</sup></td>
+            <td>1.04 × 10<sup>3</sup></td>
+            <td>6.00 × 10<sup>-6</sup></td>
+            <td>2.35 × 10<sup>3</sup></td>
+            <td>4.00 × 10<sup>-6</sup></td>
+            <td>1.94 × 10<sup>3</sup></td>
+        </tr>
                         </tbody>
                     </table>
                     
@@ -1171,67 +1128,6 @@
                 <div class="container" style="padding-top: 20px">
 
 
-
-
-                                        
-                    <!-- <ol style="text-align: justify;">
-                        <li style="margin-bottom: 25px;">
-                            <strong>UNet:</strong>
-                            
-                            <ul style="text-align: justify;">
-                                <li>
-                                    <strong>Bubble Dataset:</strong> UNet maintains low MSE and Relative L<sub>2</sub> Error, demonstrating its efficiency in handling sequential predictions. 
-                                    However, its Relative L<sub>∞</sub> Error remains higher, particularly in the <i>v</i> and <i>p</i> channels, indicating that it may face challenges in accurately capturing extreme values or maintaining performance across multiple time steps.
-                                </li>
-                                <li>
-                                    <strong>Drop Dataset:</strong> UNet performs remarkably well with the lowest MSE and Relative L<sub>2</sub> Error, excelling in predicting sequential frames. 
-                                    Nonetheless, the higher Relative L<sub>∞</sub> Error in some channels suggests difficulties in accurately predicting extreme cases over a series of time steps.
-                                </li>
-                            </ul>
-                        </li>
-                    
-                        <li style="margin-bottom: 25px;">
-                            <strong>DeepONet:</strong>
-                            <ul style="text-align: justify;">
-                                <li>
-                                    <strong>Bubble Dataset:</strong> DeepONet exhibits higher errors across all metrics compared to the other models, suggesting that it might not be well-suited for this 
-                                    sequence-to-sequence task, particularly when predicting multiple future states in complex fluid flows.
-                                </li>
-                                <li>
-                                    <strong>Drop Dataset:</strong> Although DeepONet performs better on the drop dataset compared to the bubble dataset, it still generally trails behind the other models, 
-                                    especially in the Relative L<sub>∞</sub> Error, indicating challenges in maintaining accuracy over multiple time steps.
-                                </li>
-                            </ul>
-                        </li>
-                    
-                        <li style="margin-bottom: 25px;">
-                            <strong>FNO:</strong>
-                            <ul style="text-align: justify;">
-                                <li>
-                                    <strong>Bubble Dataset:</strong> FNO shows competitive performance, particularly in MSE and Relative L<sub>2</sub> Error, indicating its robustness in handling 
-                                    sequence-to-sequence predictions. However, the higher Relative L<sub>∞</sub> Error, especially in the <i>v</i> and <i>p</i> channels, suggests challenges in managing complex flow dynamics over multiple time steps.
-                                </li>
-                                <li>
-                                    <strong>Drop Dataset:</strong> FNO continues to demonstrate strong performance with relatively low errors across all metrics, making it a solid choice for sequential predictions. 
-                                    Yet, the higher Relative L<sub>∞</sub> Error indicates potential difficulties in accurately predicting extreme behaviors over an extended sequence.
-                                </li>
-                            </ul>
-                        </li>
-                    
-                        <li style="margin-bottom: 25px;">
-                            <strong>CNO:</strong>
-                            <ul style="text-align: justify;">
-                                <li>
-                                    <strong>Bubble Dataset:</strong> CNO continues to deliver a balanced performance, with MSE and Relative L<sub>2</sub> Error lower than DeepONet but slightly higher than UNet and FNO. 
-                                    Its Relative L<sub>∞</sub> Error is relatively high, particularly in the <i>p</i> channel, indicating challenges in predicting extreme values over the sequence.
-                                </li>
-                                <li>
-                                    <strong>Drop Dataset:</strong> CNO performs well overall, with competitive MSE and Relative L<sub>2</sub> Error, and it shows the lowest Relative L<sub>∞</sub> Error in some channels, 
-                                    making it a strong candidate for sequence-to-sequence tasks, especially where robustness to outliers is important.
-                                </li>
-                            </ul>
-                        </li>
-                    </ol> -->
 
 
                     <p class="text-justify">
@@ -1304,216 +1200,168 @@ complex flow, as indicated by the larger error fields. This visual comparison hi
                         neural operators to learn effectively.
                     </p>
                     
-                    
+                  
 
                     <table class="table table-bordered table-sm" style="width:80%;margin:auto; text-align:center;">
                         <thead style="border-bottom: 2px solid black;">
-                            <!-- <caption style="caption-side: top; font-weight: bold;">Your Caption Here</caption> -->
                             <tr>
                                 <th rowspan="2" style="vertical-align:middle;">Model</th>
                                 <th rowspan="2" style="vertical-align:middle;">Channel</th>
-                                <th colspan="3" style="border-bottom: none;">Bubble Dataset</th>
-                                <th colspan="3" style="border-bottom: none;">Drop Dataset</th>
+                                <th colspan="2">S4</th>
+                                <th colspan="2">S5</th>
+                                <th colspan="2">S6</th>
                             </tr>
                             <tr>
-                                <th scope="col">MSE</th>
-                                <th scope="col">\(L_2\) Error</th>
-                                <th scope="col">\(L_\infty\) Error</th>
-                                <th scope="col">MSE</th>
-                                <th scope="col">\(L_2\) Error</th>
-                                <th scope="col">\(L_\infty\) Error</th>
+                                <th>MSE</th>
+                                <th>\(L_2\)</th>
+                                <th>MSE</th>
+                                <th>\(L_2\)</th>
+                                <th>MSE</th>
+                                <th>\(L_2\)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td rowspan="5">UNet</td>
-                                <td>Full</td>
-                                <td>2.57 × 10<sup>-4</sup></td>
-                                <td>4.23 × 10<sup>-2</sup></td>
-                                <td>7.89 × 10<sup>-1</sup></td>
-                                <td>1.07 × 10<sup>-7</sup></td>
-                                <td>1.68 × 10<sup>-3</sup></td>
-                                <td>1.39 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(c\)</td>
-                                <td>6.50 × 10<sup>-4</sup></td>
-                                <td>5.79 × 10<sup>-2</sup></td>
-                                <td>1.10 × 10<sup>0</sup></td>
-                                <td>1.81 × 10<sup>-7</sup></td>
-                                <td>1.11 × 10<sup>-3</sup></td>
-                                <td>1.97 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(u\)</td>
-                                <td>8.46 × 10<sup>-8</sup></td>
-                                <td>2.03 × 10<sup>0</sup></td>
-                                <td>7.07 × 10<sup>0</sup></td>
-                                <td>1.06 × 10<sup>-7</sup></td>
-                                <td>9.29 × 10<sup>-1</sup></td>
-                                <td>4.13 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(v\)</td>
-                                <td>4.21 × 10<sup>-7</sup></td>
-                                <td>1.56 × 10<sup>0</sup></td>
-                                <td>4.99 × 10<sup>0</sup></td>
-                                <td>5.33 × 10<sup>-8</sup></td>
-                                <td>1.83 × 10<sup>-1</sup></td>
-                                <td>1.47 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(p\)</td>
-                                <td>6.99 × 10<sup>-8</sup></td>
-                                <td>2.40 × 10<sup>2</sup></td>
-                                <td>2.07 × 10<sup>3</sup></td>
-                                <td>1.91 × 10<sup>-8</sup></td>
-                                <td>5.50 × 10<sup>3</sup></td>
-                                <td>2.32 × 10<sup>4</sup></td>
-                            </tr>
-                            
-                            <tr>
-                                <td rowspan="5">DeepONet</td>
-                                <td>Full</td>
-                                <td>1.22 × 10<sup>-3</sup></td>
-                                <td>1.01 × 10<sup>-1</sup></td>
-                                <td>9.04 × 10<sup>-1</sup></td>
-                                <td>1.42 × 10<sup>-5</sup></td>
-                                <td>1.18 × 10<sup>-2</sup></td>
-                                <td>1.13 × 10<sup>-1</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(c\)</td>
-                                <td>3.06 × 10<sup>-3</sup></td>
-                                <td>1.41 × 10<sup>-1</sup></td>
-                                <td>1.38 × 10<sup>0</sup></td>
-                                <td>3.48 × 10<sup>-5</sup></td>
-                                <td>9.57 × 10<sup>-3</sup></td>
-                                <td>1.97 × 10<sup>-1</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(u\)</td>
-                                <td>8.26 × 10<sup>-7</sup></td>
-                                <td>9.85 × 10<sup>0</sup></td>
-                                <td>1.27 × 10<sup>1</sup></td>
-                                <td>2.02 × 10<sup>-8</sup></td>
-                                <td>4.32 × 10<sup>-1</sup></td>
-                                <td>8.03 × 10<sup>-1</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(v\)</td>
-                                <td>8.51 × 10<sup>-7</sup></td>
-                                <td>3.41 × 10<sup>0</sup></td>
-                                <td>5.36 × 10<sup>0</sup></td>
-                                <td>3.32 × 10<sup>-8</sup></td>
-                                <td>1.36 × 10<sup>-1</sup></td>
-                                <td>6.01 × 10<sup>-1</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(p\)</td>
-                                <td>8.95 × 10<sup>-7</sup></td>
-                                <td>8.53 × 10<sup>2</sup></td>
-                                <td>1.65 × 10<sup>3</sup></td>
-                                <td>3.59 × 10<sup>-9</sup></td>
-                                <td>2.28 × 10<sup>3</sup></td>
-                                <td>5.58 × 10<sup>3</sup></td>
-                            </tr>
+                            <!-- UNet -->
+                            <tr><td rowspan="4">UNet</td><td>\(c\)</td><td>3.27 × 10<sup>-2</sup></td><td>2.87 × 10<sup>-2</sup></td><td>3.93 × 10<sup>-2</sup></td><td>3.31 × 10<sup>-2</sup></td><td>7.34 × 10<sup>-2</sup></td><td>6.58 × 10<sup>-2</sup></td></tr>
+                            <tr><td>\(u\)</td><td>1.35 × 10<sup>-4</sup></td><td>3.54 × 10<sup>0</sup></td><td>2.02 × 10<sup>-4</sup></td><td>3.10 × 10<sup>0</sup></td><td>6.65 × 10<sup>-4</sup></td><td>3.90 × 10<sup>0</sup></td></tr>
+                            <tr><td>\(v\)</td><td>1.00 × 10<sup>-6</sup></td><td>1.38 × 10<sup>0</sup></td><td>1.00 × 10<sup>-6</sup></td><td>1.45 × 10<sup>0</sup></td><td>1.00 × 10<sup>-6</sup></td><td>9.54 × 10<sup>-1</sup></td></tr>
+                            <tr><td>\(p\)</td><td>1.00 × 10<sup>-6</sup></td><td>6.76 × 10<sup>2</sup></td><td>1.00 × 10<sup>-6</sup></td><td>6.30 × 10<sup>2</sup></td><td>1.00 × 10<sup>-6</sup></td><td>7.79 × 10<sup>2</sup></td></tr>
                     
-                            <tr>
-                                <td rowspan="5">FNO</td>
-                                <td>Full</td>
-                                <td>2.74 × 10<sup>-4</sup></td>
-                                <td>4.72 × 10<sup>-2</sup></td>
-                                <td>7.18 × 10<sup>-1</sup></td>
-                                <td>1.36 × 10<sup>-7</sup></td>
-                                <td>1.88 × 10<sup>-3</sup></td>
-                                <td>8.82 × 10<sup>-3</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(c\)</td>
-                                <td>6.62 × 10<sup>-4</sup></td>
-                                <td>6.78 × 10<sup>-2</sup></td>
-                                <td>1.09 × 10<sup>0</sup></td>
-                                <td>2.59 × 10<sup>-7</sup></td>
-                                <td>1.35 × 10<sup>-3</sup></td>
-                                <td>1.39 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(u\)</td>
-                                <td>3.55 × 10<sup>-6</sup></td>
-                                <td>1.97 × 10<sup>1</sup></td>
-                                <td>1.84 × 10<sup>1</sup></td>
-                                <td>6.05 × 10<sup>-8</sup></td>
-                                <td>7.22 × 10<sup>-1</sup></td>
-                                <td>1.34 × 10<sup>0</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(v\)</td>
-                                <td>2.24 × 10<sup>-6</sup></td>
-                                <td>3.71 × 10<sup>0</sup></td>
-                                <td>4.88 × 10<sup>0</sup></td>
-                                <td>1.08 × 10<sup>-7</sup></td>
-                                <td>2.34 × 10<sup>-1</sup></td>
-                                <td>9.04 × 10<sup>-1</sup></td>
-                            </tr>
-                            <tr>
-                                <td>\(p\)</td>
-                                <td>2.46 × 10<sup>-6</sup></td>
-                                <td>1.31 × 10<sup>3</sup></td>
-                                <td>2.12 × 10<sup>3</sup></td>
-                                <td>2.12 × 10<sup>-8</sup></td>
-                                <td>5.56 × 10<sup>3</sup></td>
-                                <td>7.25 × 10<sup>3</sup></td>
-                            </tr>
+                            <!-- DeepONet -->
+                            <tr><td rowspan="4">DeepONet</td><td>\(c\)</td><td>1.64 × 10<sup>-1</sup></td><td>1.60 × 10<sup>-1</sup></td><td>2.03 × 10<sup>-1</sup></td><td>1.99 × 10<sup>-1</sup></td><td>1.94 × 10<sup>-1</sup></td><td>1.92 × 10<sup>-1</sup></td></tr>
+                            <tr><td>\(u\)</td><td>3.33 × 10<sup>-3</sup></td><td>3.15 × 10<sup>0</sup></td><td>5.04 × 10<sup>-3</sup></td><td>1.64 × 10<sup>0</sup></td><td>4.57 × 10<sup>-3</sup></td><td>1.32 × 10<sup>0</sup></td></tr>
+                            <tr><td>\(v\)</td><td>1.00 × 10<sup>-6</sup></td><td>1.04 × 10<sup>0</sup></td><td>1.00 × 10<sup>-6</sup></td><td>7.59 × 10<sup>-1</sup></td><td>1.00 × 10<sup>-6</sup></td><td>3.83 × 10<sup>-1</sup></td></tr>
+                            <tr><td>\(p\)</td><td>1.00 × 10<sup>-6</sup></td><td>7.30 × 10<sup>2</sup></td><td>1.00 × 10<sup>-6</sup></td><td>3.53 × 10<sup>2</sup></td><td>1.00 × 10<sup>-6</sup></td><td>3.17 × 10<sup>2</sup></td></tr>
                     
+
+
+                            <!-- FNO -->
                             <tr>
-                                <td rowspan="5">CNO</td>
-                                <td>Full</td>
-                                <td>8.50 × 10<sup>-5</sup></td>
-                                <td>2.07 × 10<sup>-2</sup></td>
-                                <td>5.05 × 10<sup>-1</sup></td>
-                                <td>8.31 × 10<sup>-7</sup></td>
-                                <td>4.30 × 10<sup>-3</sup></td>
-                                <td>2.43 × 10<sup>-2</sup></td>
-                            </tr>
-                            <tr>
+                                <td rowspan="4">FNO</td>
                                 <td>\(c\)</td>
-                                <td>2.16 × 10<sup>-4</sup></td>
-                                <td>2.89 × 10<sup>-2</sup></td>
-                                <td>6.41 × 10<sup>-1</sup></td>
-                                <td>1.59 × 10<sup>-6</sup></td>
-                                <td>3.02 × 10<sup>-3</sup></td>
+                                <td><b>1.16 × 10<sup>-2</sup></b></td>
+                                <td><b>1.10 × 10<sup>-2</sup></b></td>
+                                <td>2.33 × 10<sup>-2</sup></td>
+                                <td>2.20 × 10<sup>-2</sup></td>
+                                <td>4.24 × 10<sup>-2</sup></td>
                                 <td>4.00 × 10<sup>-2</sup></td>
                             </tr>
                             <tr>
                                 <td>\(u\)</td>
-                                <td>1.51 × 10<sup>-7</sup></td>
-                                <td>2.80 × 10<sup>0</sup></td>
-                                <td>5.52 × 10<sup>0</sup></td>
-                                <td>1.50 × 10<sup>-7</sup></td>
-                                <td>1.11 × 10<sup>0</sup></td>
-                                <td>3.10 × 10<sup>0</sup></td>
+                                <td>1.70 × 10<sup>-5</sup></td>
+                                <td>1.00 × 10<sup>0</sup></td>
+                                <td>6.50 × 10<sup>-5</sup></td>
+                                <td>2.98 × 10<sup>0</sup></td>
+                                <td>2.28 × 10<sup>-4</sup></td>
+                                <td>1.13 × 10<sup>0</sup></td>
                             </tr>
                             <tr>
                                 <td>\(v\)</td>
-                                <td>2.42 × 10<sup>-7</sup></td>
-                                <td>1.04 × 10<sup>0</sup></td>
-                                <td>2.73 × 10<sup>0</sup></td>
-                                <td>3.45 × 10<sup>-7</sup></td>
-                                <td>4.63 × 10<sup>-1</sup></td>
-                                <td>1.62 × 10<sup>0</sup></td>
+                                <td>1.00 × 10<sup>-6</sup></td>
+                                <td>4.50 × 10<sup>-1</sup></td>
+                                <td>1.00 × 10<sup>-6</sup></td>
+                                <td>1.28 × 10<sup>0</sup></td>
+                                <td>1.00 × 10<sup>-6</sup></td>
+                                <td>3.98 × 10<sup>-1</sup></td>
                             </tr>
                             <tr>
                                 <td>\(p\)</td>
-                                <td>9.64 × 10<sup>-8</sup></td>
-                                <td>2.86 × 10<sup>2</sup></td>
-                                <td>7.81 × 10<sup>2</sup></td>
-                                <td>3.59 × 10<sup>-8</sup></td>
-                                <td>7.61 × 10<sup>3</sup></td>
-                                <td>2.72 × 10<sup>4</sup></td>
+                                <td>1.00 × 10<sup>-6</sup></td>
+                                <td>1.38 × 10<sup>2</sup></td>
+                                <td>1.00 × 10<sup>-6</sup></td>
+                                <td>7.87 × 10<sup>2</sup></td>
+                                <td>1.00 × 10<sup>-6</sup></td>
+                                <td>2.69 × 10<sup>2</sup></td>
+                            </tr>
+
+
+                            <!-- CNO -->
+                   <tr>
+            <td rowspan="4">CNO</td>
+            <td>\(c\)</td>
+            <td>1.74 × 10<sup>-2</sup></td>
+            <td>1.69 × 10<sup>-2</sup></td>
+            <td><b>1.72 × 10<sup>-2</sup></b></td>
+            <td><b>1.63 × 10<sup>-2</sup></b></td>
+            <td><b>3.78 × 10<sup>-2</sup></b></td>
+            <td><b>3.53 × 10<sup>-2</sup></b></td>
+        </tr>
+        <tr>
+            <td>\(u\)</td>
+            <td>3.70 × 10<sup>-5</sup></td>
+            <td>1.51 × 10<sup>0</sup></td>
+            <td>3.60 × 10<sup>-5</sup></td>
+            <td>1.37 × 10<sup>0</sup></td>
+            <td>1.76 × 10<sup>-4</sup></td>
+            <td>1.74 × 10<sup>0</sup></td>
+        </tr>
+        <tr>
+            <td>\(v\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>6.87 × 10<sup>-1</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>6.85 × 10<sup>-1</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>5.98 × 10<sup>-1</sup></td>
+        </tr>
+        <tr>
+            <td>\(p\)</td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>2.84 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>2.93 × 10<sup>2</sup></td>
+            <td>1.00 × 10<sup>-6</sup></td>
+            <td>4.22 × 10<sup>2</sup></td>
+        </tr>
+
+
+                            <!-- scOT -->
+                            <tr><td rowspan="4">scOT</td><td>\(c\)</td><td>3.85 × 10<sup>-3</sup></td><td>3.69 × 10<sup>0</sup></td><td>3.79 × 10<sup>-3</sup></td><td>6.27 × 10<sup>0</sup></td><td>6.27 × 10<sup>-3</sup></td><td>5.79 × 10<sup>0</sup></td></tr>
+                            <tr><td>\(u\)</td><td>1.73 × 10<sup>-4</sup></td><td>6.73 × 10<sup>0</sup></td><td>6.73 × 10<sup>0</sup></td><td>5.73 × 10<sup>0</sup></td><td>4.85 × 10<sup>-4</sup></td><td>5.31 × 10<sup>0</sup></td></tr>
+                            <tr><td>\(v\)</td><td>3.00 × 10<sup>-6</sup></td><td>2.78 × 10<sup>0</sup></td><td>3.00 × 10<sup>-6</sup></td><td>2.12 × 10<sup>0</sup></td><td>2.00 × 10<sup>-6</sup></td><td>1.93 × 10<sup>0</sup></td></tr>
+                            <tr><td>\(p\)</td><td>3.00 × 10<sup>-6</sup></td><td>1.48 × 10<sup>3</sup></td><td>3.00 × 10<sup>-6</sup></td><td>1.34 × 10<sup>3</sup></td><td>1.00 × 10<sup>-6</sup></td><td>1.21 × 10<sup>3</sup></td></tr>
+                    
+                            <!-- Poseidon -->
+                            <tr>
+                                <td rowspan="4">Poseidon</td>
+                                <td>\(c\)</td>
+                                <td>3.06 × 10<sup>-2</sup></td>
+                                <td>2.84 × 10<sup>0</sup></td>
+                                <td>3.33 × 10<sup>-2</sup></td>
+                                <td>3.17 × 10<sup>-2</sup></td>
+                                <td>5.99 × 10<sup>-2</sup></td>
+                                <td>5.79 × 10<sup>-1</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(u\)</td>
+                                <td>1.01 × 10<sup>-4</sup></td>
+                                <td>8.26 × 10<sup>0</sup></td>
+                                <td>1.26 × 10<sup>-4</sup></td>
+                                <td>6.49 × 10<sup>0</sup></td>
+                                <td>4.30 × 10<sup>-4</sup></td>
+                                <td>7.79 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(v\)</td>
+                                <td>5.00 × 10<sup>-6</sup></td>
+                                <td>3.51 × 10<sup>0</sup></td>
+                                <td>4.00 × 10<sup>-6</sup></td>
+                                <td>2.47 × 10<sup>0</sup></td>
+                                <td>5.00 × 10<sup>-6</sup></td>
+                                <td>2.16 × 10<sup>0</sup></td>
+                            </tr>
+                            <tr>
+                                <td>\(p\)</td>
+                                <td>5.00 × 10<sup>-6</sup></td>
+                                <td>1.71 × 10<sup>3</sup></td>
+                                <td>4.00 × 10<sup>-6</sup></td>
+                                <td>1.48 × 10<sup>3</sup></td>
+                                <td>5.00 × 10<sup>-6</sup></td>
+                                <td>1.81 × 10<sup>3</sup></td>
                             </tr>
                         </tbody>
                     </table>
+                    
                     
                     
                     
