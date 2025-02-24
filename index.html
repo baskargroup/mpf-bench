@@ -105,28 +105,31 @@
     <table class="table2">
         <!-- First part -->
         <tr>
-            <td> <a href="https://www.linkedin.com/in/mehdi-shadkhah" class="link-dark">Mehdi Shadkhah</a>&nbsp;</td>
+            <td> <a href="https://scholar.google.com/citations?hl=en&user=PxA2ahwAAAAJ" class="link-dark">Mehdi Shadkhah</a>&nbsp;</td>
             <td><a href="https://scholar.google.com/citations?user=c_d8jmgAAAAJ&hl=en" class="link-dark">Ronak Tali</a></td>
             <td><a href="https://scholar.google.com/citations?user=iR7jCn8AAAAJ&hl=en" class="link-dark">Ali Rabeh</a></td>
+            <td><a href="https://scholar.google.com/citations?user=JstQ09AAAAAJ&hl=en" class="link-dark">Ethan Herron</a></td>
             <td><a href="https://scholar.google.com/citations?user=RZqCEWIAAAAJ" class="link-dark">Cheng-Hau Yang</a></td>
             <td><a href="https://" class="link-dark">Abhisek Upadhyaya</a></td>
-            <td><a href="https://scholar.google.com/citations?user=iVTMSxoAAAAJ&hl=en" class="link-dark">Adarsh Krishnamurthy</a></td>
+
         </tr>
         <tr>
+            <td class="text-muted"><small>Iowa State University</small></td>
             <td class="text-muted"><small>Iowa State University</small></td>
             <td class="text-muted"><small>Iowa State University</small></td>
             <td class="text-muted"><small>Iowa State University</small></td>
             <td class="text-muted"><small>Iowa State University</small></td>
             <td class="text-muted"><small>New York University</small></td>
-            <td class="text-muted"><small>Iowa State University</small></td>
+
         </tr>
         <tr>
             <td class="text-muted"><small>Ames, IA, USA</small></td>
             <td class="text-muted"><small>Ames, IA, USA</small></td>
             <td class="text-muted"><small>Ames, IA, USA</small></td>
             <td class="text-muted"><small>Ames, IA, USA</small></td>
-            <td class="text-muted"><small>New York, NY, USA</small></td>
             <td class="text-muted"><small>Ames, IA, USA</small></td>
+            <td class="text-muted"><small>New York, NY, USA</small></td>
+
         </tr>
     </table>
 
@@ -134,16 +137,20 @@
     <div class="centered-wrapper">
         <table class="table2">
             <tr>
+                <td><a href="https://scholar.google.com/citations?user=iVTMSxoAAAAJ&hl=en" class="link-dark">Adarsh Krishnamurthy</a></td>
                 <td> <a href="https://scholar.google.com/citations?user=eJAV17IAAAAJ&hl=en" class="link-dark">Chinmay Hegde</a>&nbsp;</td>
                 <td><a href="https://scholar.google.com/citations?user=GNuXi6oAAAAJ&hl=en" class="link-dark">Aditya Balu</a></td>
                 <td><a href="https://scholar.google.com/citations?user=R1JIs4cAAAAJ&hl=en" class="link-dark">Baskar Ganapathysubramanian</a></td>
             </tr>
             <tr>
+                <td class="text-muted"><small>Iowa State University</small></td>
                 <td class="text-muted"><small>New York University</small></td>
                 <td class="text-muted"><small>Iowa State University</small></td>
                 <td class="text-muted"><small>Iowa State University</small></td>
+
             </tr>
             <tr>
+                <td class="text-muted"><small>Ames, IA, USA</small></td>
                 <td class="text-muted"><small>New York, NY, USA</small></td>
                 <td class="text-muted"><small>Ames, IA, USA</small></td>
                 <td class="text-muted"><small>Ames, IA, USA</small></td>
@@ -170,7 +177,7 @@
     <div class="row">
         <div class="col-sm"></div>
         <div class="item col-sm-3">
-            <a href="assets/MultiphaseBench_Dataset_NeurIPS_2024.pdf" class="link-primary text-dark">
+            <a href="https://arxiv.org/abs/2502.07080" class="link-primary text-dark">
                 <img src="assets/paper.png" width="15%"/>
                 <b>Paper</b></a>
         </div>
@@ -198,13 +205,13 @@
         <h3>Abstract</h3>
     </div>
     <div class="text-dark text-justify">
-        The dynamics of falling droplets and rising bubbles involve complex multiphase fluid physics crucial for many industrial applications. 
-        However, traditional multiphase solvers are computationally expensive due to the need to resolve complex phenomena like instabilities, wave patterns, and bubble breakup.
-         Scientific machine learning (SciML) is a promising strategy for designing multiphase flow solvers, but it requires a large dataset. 
-         This paper presents a comprehensive dataset created from 11,000 simulations, both in 2D and 3D, using the Lattice Boltzmann method (LBM). 
-         The dataset captures intricate physics by varying factors such as surface tension, density, and viscosity of fluids. These simulations, comprising 1 million time snapshots, provide extensive data on two-fluid behavior. 
-         By making this dataset publicly available, we aim to encourage SciML research and its applications in complex fluid systems, facilitating the creation of more precise and efficient SciML frameworks for multiphysics applications. 
-         Our dataset spans multiple orders of magnitude of Reynolds and Bond numbers, density, and viscosity ratios, making it exceptionally rich and valuable for understanding multiphase flows.
+        Multiphase fluid dynamics, such as falling droplets and rising bubbles, are critical to many industrial applications. However, simulating 
+        these phenomena efficiently is challenging due to the complexity of instabilities, wave patterns, and bubble breakup. This paper investigates 
+        the potential of scientific machine learning (SciML) to model these dynamics using neural operators and foundation models. We apply 
+        sequence-to-sequence techniques on a comprehensive dataset generated from 11,000 simulations, comprising 1 million time snapshots, produced
+         with a well-validated Lattice Boltzmann method (LBM) framework. The results demonstrate the ability of machine learning models to capture 
+         transient dynamics and intricate fluid interactions, paving the way for more accurate and computationally efficient SciML-based solvers for 
+         multiphase applications.
     </div>
 </div>
 
@@ -669,6 +676,7 @@
         <a class="nav-item nav-link" href="#p12" data-toggle="tab">DeepONet</a>
         <a class="nav-item nav-link" href="#p13" data-toggle="tab">Fourier Neural Operator</a>
         <a class="nav-item nav-link" href="#p14" data-toggle="tab">Convolutional Neural Operator</a>
+        <a class="nav-item nav-link" href="#p15" data-toggle="tab">Poseidon</a>
     </nav>
 
     <div class="tab-content">
@@ -768,6 +776,33 @@
             </div>
         </div>
 
+
+        <div class="tab-pane fade" id="p15">
+            <div class="row" style="border:none">
+                <div class="container" style="padding-top: 20px">
+           
+                    <p class="text-justify">
+                        Proposed as a foundation model for scientific machine learning, Poseidon is based on the Scalable Operator Transformers 
+                        (scOT) architecture, which combines hierarchical, multiscale vision transformers with U-Net-style encoder-decoder structures. 
+                        Specifically, it integrates Swin Transformer V2 blocks with ConvNeXt residual blocks to capture multiscale dependencies
+                         efficiently. Trained on a large dataset of compressible Euler and incompressible Navier-Stokes equations, Poseidon is designed 
+                         to generalize across complex fluid dynamics scenarios. The model is available in three sizes—tiny (20M parameters), base 
+                         (160M parameters), and large (630M parameters). In this work, we utilize the tiny version of Poseidon (Poseidon-T), which 
+                         provides a balance between computational efficiency and predictive accuracy for our experiments.
+                    </p>
+
+                    <p class="text-justify">
+                        <b>Reference:</b> Herde, M., Raonić, B., Rohner, T., Käppeli, R., Molinaro, R., de Bézenac, E., & Mishra, S. (2024). 
+                        Poseidon: Efficient foundation models for PDEs. 
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
     </div>
 </div>
 
@@ -810,25 +845,14 @@
                     
                     
                     <p class="text-justify">
-                        This section presents the results of our sequence-to-field predictions for both the bubble and drop datasets, evaluated across four different models: UNet, DeepONet, 
-                        Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this setup, the models were trained on a sequence of input time steps 
-                    [0, 5, 10, 15, 20] and were tasked with predicting the state of the system at time step [25]. This approach is crucial for understanding how well each model can capture and predict the evolution of the system over time, based on a given history.
+                        The <strong>Sequence to Field</strong> evaluation tests how well machine learning models predict the interface field <em>C</em> of multiphase flows 
+                        given different input sequences. We set up three different data subsets: <strong>S1, S2, and S3</strong>. The models receive either a single timestep <code>t1</code>, 
+                        sequences from <code>t1</code> to <code>t3</code>, or sequences from <code>t1</code> to <code>t5</code>, and they predict the corresponding next time snapshot 
+                        for each subset. The figure below compares the ground truth with predictions from <strong>UNet, CNO, DeepONet, and Poseidon</strong>, where each row represents a different subset. 
+                        <strong>S1</strong> corresponds to a simpler case with minimal deformation, <strong>S2</strong> involves moderate interface changes, and <strong>S3</strong> represents a more challenging case 
+                        with significant interface deformation. <strong>CNO achieves the best performance</strong>, maintaining accurate interface structures, while DeepONet struggles with high-deformation cases.
                     </p>
                     
-                    
-                    <p class="text-justify">
-                        The figure shows the sequence-to-field predictions for the interface field 𝐶
-                        using four different models: UNet, DeepONet, Fourier Neural Operator (FNO), and Convolutional Neural Operator 
-                        (CNO). The columns represent the true interface field 𝐶 , the predicted interface field, and the error between 
-                        the prediction and the ground truth. This comparison highlights how each model performs in capturing the interface
-                         dynamics of a fluid system at a specific time step, given a sequence of prior states. UNet, FNO, and CNO exhibit 
-                         relatively low prediction errors, suggesting their robustness in predicting the interface field. In contrast, DeepONet 
-                         shows larger errors, particularly in regions of complex deformation, indicating that it may struggle more with 
-                         capturing intricate interface details. This visual analysis underscores the strengths and limitations of each model 
-                         in accurately predicting the evolution of the interface field over time.
-                    </p>
-
-
 
                     
                         <!-- Insert the image in the middle -->
@@ -836,18 +860,11 @@
                             <img src="assets\figures\f1.png" alt="Description of Image" style="max-width: 100%; height: auto;">
                             <br/>
                             <br/>
-                            <p style="font-style: italic;"><b>Figure:</b> Visualization of four different cases from the 3D bubble dataset, illustrating the impact of varying Reynolds
-                                 (Re) and Bond (Bo) numbers on bubble deformation. As Re and Bo numbers increase, the bubble exhibits more complex and challenging dynamics, 
-                                 demonstrating the varying levels of difficulty in predicting bubble behavior across different flow regimes.</p> <!-- Visible description below the image -->
+                            <p style="font-style: italic;"><b>Figure:</b>  <em>The figure presents a comparison of sequence-to-field predictions for the concentration field </em> C <em> against the ground truth. 
+                                The predictions are generated by four models: UNet, Convolutional Neural Operator (CNO), DeepONet, and Poseidon, across three data subsets (S1, S2, and S3). 
+                                Each row corresponds to a different subset (S1, S2, or S3), while each column displays the predictions made by the respective models.</em>
                         </div>
 
-                
-
-                    <p class="text-justify">
-                        CNO appears to perform better than the other three networks across all metrics (MSE, \(L_2\), \(L_\infty\)). However, all models' performances are within the same order of magnitude. The higher \(L_2\) 
-                        and Linifinty errors for pressure, \(p\), are likely due to its lower smoothness compared to other fields (\(u\), \(v\), \(c\)), and sudden jumps in the pressure field make it more challenging for 
-                        neural operators to learn effectively.
-                    </p>
 
                     
                     
@@ -1130,75 +1147,33 @@
 
 
 
+
                     <p class="text-justify">
-                        This section displays the outcomes of our sequence-to-sequence predictions for both the bubble and drop datasets, assessed across four different models: UNet, DeepONet, 
-                        Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). In this experiment, the models were trained on a sequence of input time steps 
-                        [0, 5, 10, 15, 20] and tasked with predicting the system's state over the subsequent time steps [25, 26, 27, 28, 29]. This approach is critical for evaluating how well each model can 
-                        forecast the system's progression over a sequence of time, based on the given historical data.
+                        The <strong>Sequence to Sequence</strong> evaluation extends the challenge by predicting a <strong>sequence of future states</strong> rather than a single snapshot. 
+                        The models are trained on past sequences and tasked with predicting the system's evolution at <strong>three consecutive time steps</strong>. We define three test cases: 
+                        <strong>S4, S5, and S6</strong>, where input sequences range from <code>t1</code> to <code>t3</code>, <code>t1</code> to <code>t5</code>, and <code>t1</code> to <code>t8</code>, respectively. 
+                        The figure below compares predictions from different models against ground truth at key time steps <strong>T9, T10, and T11</strong>, showing how well each model maintains accuracy over time. 
+                        <strong>CNO again performs best</strong>, accurately capturing complex interface dynamics, while DeepONet exhibits increasing errors, particularly in high-deformation regions. 
+                        This benchmark provides insights into how well neural operators forecast long-term fluid dynamics.
                     </p>
 
-                    <p class="text-justify">
-                    The figure illustrates the sequence-to-sequence predictions for the interface field 𝐶
- across four different models: UNet, DeepONet, Fourier Neural Operator (FNO), and Convolutional Neural Operator (CNO). The columns in the figure represent the ground truth interface field  𝐶
-, the predicted interface field, and the corresponding error between the prediction and the ground truth. Each model's 
-ability to capture the dynamics of the flow and accurately predict the interface distribution is visually compared here. Notably, 
-while UNet, FNO, and CNO exhibit relatively low prediction errors, DeepONet shows significant discrepancies, particularly in regions of 
-complex flow, as indicated by the larger error fields. This visual comparison highlights the strengths and weaknesses of each model in handling
- sequence-to-sequence predictions, particularly in capturing intricate flow structures and minimizing prediction errors over time.
-</p>
 
-                    <table style="margin:auto;text-align: center">
-                        <!-- First Row -->
-                        <tr>
-                            <td><b>UNet</b></td>
-                            <td><b>DeepONet</b></td>
-                        </tr>
-                        <tr>
-                            <td width="49%">
-                                <img class="preload" src="assets/gifs/seq_unet.gif" style="width: 100%">
-                            </td>
-                            <td width="49%">
-                                <img class="preload" src="assets/gifs/seq_deeponet.gif" style="width: 100%">
-                            </td>
-                        </tr>
-                        <!-- Spacer Row -->
-                        <tr>
-                            <td colspan="2" style="height: 20px;"></td>
-                        </tr>
-                        <!-- Second Row -->
-                        <tr>
-                            <td><b>FNO</b></td>
-                            <td><b>CNO</b></td>
-                        </tr>
-                        <tr>
-                            <td width="49%">
-                                <img class="preload" src="assets/gifs/seq_fno.gif" style="width: 100%">
-                            </td>
-                            <td width="49%">
-                                <img class="preload" src="assets/gifs/seq_cno.gif" style="width: 100%">
-                            </td>
-                        </tr>
-                    </table>
-                    
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                    <script>
-                        $(window).on('load', function() {
-                            $('.preload').attr('src', function(i, a) {
-                                $(this).attr('src', '').removeClass('preload').attr('src', a);
-                            });
-                        });
-                    </script>
+                        <!-- Insert the image in the middle -->
+                        <div style="text-align: center; margin: 20px 0;">
+                            <img src="assets\figures\f2.png" alt="Description of Image" style="max-width: 100%; height: auto;">
+                            <br/>
+                            <br/>
+                            <p style="font-style: italic;"><b>Figure:</b>     <em>The figure presents sequence-to-sequence predictions for the concentration field </em> C <em> compared to the ground truth. 
+                                Predictions are made by four models: UNet, Convolutional Neural Operator (CNO), DeepONet, and Poseidon. 
+                                Each row represents different time steps (</em>t<sub>9</sub>, t<sub>10</sub>, and t<sub>11</sub><em>) from dataset S6, 
+                                while each column shows the predictions from the respective models.</em>
+                        </div>
                     
                     <br/>
                     <br/>
                     
 
-    
-                    <p class="text-justify">
-                        CNO appears to perform better than the other three networks across all metrics (MSE, \(L_2\), \(L_\infty\)). However, all models' performances are within the same order of magnitude. The higher \(L_2\) 
-                        and Linifinty errors for pressure, \(p\), are likely due to its lower smoothness compared to other fields (\(u\), \(v\), \(c\)), and sudden jumps in the pressure field make it more challenging for 
-                        neural operators to learn effectively.
-                    </p>
+
                     
                   
 
